@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --studio-canvas: #f4f3ef;
+  --studio-ink: #171716;
+  --studio-muted: #6b6964;
+  --studio-line: #d7d4cc;
+  --studio-violet: #5b4bf3;
+  --studio-coral: #ff654f;
+  --studio-mist: #dde7e3;
+  --studio-white: #fffefa;
+  --studio-font-display: "Newsreader", Georgia, serif;
+  --studio-font-body: "Onest", Arial, sans-serif;
+  --studio-gutter: clamp(1.25rem, 4vw, 4rem);
+  --studio-content-max: 90rem;
+  --studio-reading-measure: 68ch;
+  --motion-fast: 180ms;
+  --motion-page: 280ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+}
+
+@theme inline {
+  --color-canvas: var(--studio-canvas);
+  --color-ink: var(--studio-ink);
+  --color-muted: var(--studio-muted);
+  --color-line: var(--studio-line);
+  --color-accent: var(--studio-violet);
+  --color-signal: var(--studio-coral);
+  --color-mist: var(--studio-mist);
+  --color-surface: var(--studio-white);
+  --font-display: var(--studio-font-display);
+  --font-body: var(--studio-font-body);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+html {
+  background: var(--studio-canvas);
+  color: var(--studio-ink);
+  font-family: var(--studio-font-body);
+}
+
+body {
+  margin: 0;
+  min-width: 20rem;
+}
+
+:focus-visible {
+  outline: 0.1875rem solid var(--studio-violet);
+  outline-offset: 0.1875rem;
+}
+
+main {
+  box-sizing: border-box;
+  margin-inline: auto;
+  max-width: var(--studio-content-max);
+  min-height: 100vh;
+  padding: clamp(4rem, 12vw, 10rem) var(--studio-gutter);
+}
+
+main > * {
+  max-width: var(--studio-reading-measure);
+}
+
+h1 {
+  font-family: var(--studio-font-display);
+  font-size: clamp(2.75rem, 8vw, 7rem);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  line-height: 1.6;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--motion-page);
+  animation-timing-function: var(--ease-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(*, *::before, *::after) {
+    /* biome-ignore lint/complexity/noImportantStyles: Accessibility override must win. */
+    scroll-behavior: auto !important;
+    /* biome-ignore lint/complexity/noImportantStyles: Accessibility override must win. */
+    transition-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: Accessibility override must win. */
+    animation-duration: 0.01ms !important;
+    /* biome-ignore lint/complexity/noImportantStyles: Accessibility override must win. */
+    animation-iteration-count: 1 !important;
+  }
+}

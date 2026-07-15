@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "gateCommand": "bun run format:check && bun run lint && bun run typecheck && bun run test && bun run build && bun run test:e2e && bun run guard:tests && bun run plan:check",
+  "gateStages": [
+    "bun run format:check",
+    "bun run lint",
+    "bun run typecheck",
+    "bun run test",
+    "bun run build",
+    "bun run test:e2e",
+    "bun run guard:tests",
+    "bun run plan:check"
+  ],
+  "files": {
+    "tests/e2e/routes.e2e.ts": {
+      "testCount": 12,
+      "assertionCount": 9,
+      "markers": [],
+      "hasExit": false
+    },
+    "tests/unit/study-schema.test.ts": {
+      "testCount": 2,
+      "assertionCount": 2,
+      "markers": [],
+      "hasExit": false
+    }
+  }
+}
