@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #0E0E0D; color: #F4F3EF; }
+a { color: #8F83FF; }
+a:hover { color: #D97757; }
+::selection { background: #5B4BF3; color: #FFFEFA; }
+@keyframes ybhDriftA { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(120px,60px) scale(1.15); } 66% { transform: translate(-60px,110px) scale(0.92); } 100% { transform: translate(0,0) scale(1); } }
+@keyframes ybhHueShift { 0%, 100% { color: #8F83FF; } 33% { color: #D97757; } 66% { color: #C7A15A; } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<main style="background: #0E0E0D">
+
+  <section data-screen-label="Process — Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; top: -160px; left: -100px; width: 580px; height: 580px; border-radius: 50%; background: radial-gradient(circle, rgba(199,161,90,0.32), transparent 65%); filter: blur(90px); animation: ybhDriftA 30s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 4vw, 64px) 88px; display: flex; flex-direction: column; gap: 26px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+      <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,243,239,0.55)">Process</span>
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(56px, 6vw, 88px); line-height: 1.0; letter-spacing: -0.025em; max-width: 16ch; text-wrap: balance">Clear from first note to <em style="font-style: italic; animation: ybhHueShift 12s ease-in-out infinite">final handoff.</em></h1>
+      <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 18px; line-height: 1.65; color: rgba(244,243,239,0.8); max-width: 58ch">Five stages, each with a clear exit. You always know what we are deciding, what you will receive, and what I need from you to keep moving.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Process — Stages" style="background: #F4F3EF; color: #171716">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(20px, 4vw, 64px) 104px; display: flex; flex-direction: column; gap: 20px">
+      <sc-for list="{{ stages }}" as="stage" hint-placeholder-count="5">
+        <div style="display: grid; grid-template-columns: 3fr 4fr 3fr 2fr; gap: clamp(24px, 3vw, 56px); padding: 40px clamp(24px, 3vw, 44px); background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 20px; align-items: start; transition: transform 0.4s cubic-bezier(0.19,1,0.22,1), border-color 0.4s cubic-bezier(0.19,1,0.22,1), box-shadow 0.4s cubic-bezier(0.19,1,0.22,1)" style-hover="transform: translateY(-4px); border-color: #5B4BF3; box-shadow: 0 20px 48px rgba(23,23,22,0.1)">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; font-size: 40px; color: #5B4BF3">{{ stage.num }}</span>
+            <span style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 26px; letter-spacing: -0.01em">{{ stage.title }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6964">What happens</span>
+            <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.68">{{ stage.what }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6964">You get</span>
+            <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 400; font-size: 15px; line-height: 1.65">{{ stage.get }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6964">Your part</span>
+            <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.65; color: #6B6964">{{ stage.part }}</p>
+          </div>
+        </div>
+      </sc-for>
+
+      <div style="margin-top: 52px; background: #DDE7E3; border-radius: 20px; padding: 52px clamp(32px, 4vw, 64px); display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(32px, 4vw, 64px)">
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">One conversation</span>
+          <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.65">You talk to the person doing the work at every stage. Nothing gets lost between a strategist, a designer, and a developer — there is only one of me.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">Decisions stay visible</span>
+          <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.65">Every stage ends with something you can read, click, or test — not a status update. If a decision changes, the record changes with it.</p>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px">
+          <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">Built to hand over</span>
+          <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.65">The site ships with documentation, tests, and a design record precise enough that a future developer — or you — can extend it without me.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Process — CTA" style="background: #0E0E0D; color: #F4F3EF; position: relative; overflow: hidden">
+    <div style="position: absolute; bottom: -200px; left: -100px; width: 620px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.42), transparent 68%); filter: blur(90px); animation: ybhDriftA 32s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 48px">
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(38px, 3.8vw, 56px); line-height: 1.06; letter-spacing: -0.02em; max-width: 20ch">Stage 01 starts with one <em style="font-style: italic; color: #D97757">honest conversation.</em></h2>
+      <a href="Start.dc.html" style="font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: #FFFEFA; background: #5B4BF3; padding: 20px 38px; border-radius: 999px; white-space: nowrap; transition: background 0.4s cubic-bezier(0.19,1,0.22,1), transform 0.4s cubic-bezier(0.19,1,0.22,1), box-shadow 0.4s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #D97757; color: #171716; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(217,119,87,0.35)">Start a project</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      stages: [
+        {
+          num: '01', title: 'Listen and frame',
+          what: 'We talk through what you make, who it is for, what is not working now, and what a better site must change. I read everything you already have — old pages, notes, reviews, pitch documents.',
+          get: 'An approved message hierarchy and a route map with a job per page.',
+          part: 'Source material, honest answers, and a decision-maker in the room.'
+        },
+        {
+          num: '02', title: 'Write and direct',
+          what: 'I draft the key copy and establish the art direction: type, colour, layout grammar, and the one visual idea that belongs to your brand — not to a template.',
+          get: 'Page outlines with working copy and a direction you can react to.',
+          part: 'One focused review pass — clarity and truth, not wordsmithing.'
+        },
+        {
+          num: '03', title: 'Design and prototype',
+          what: 'The direction becomes a design system and clickable prototypes of the pages that matter most. We test the journey a real visitor takes, not isolated screens.',
+          get: 'A documented design system (DESIGN.md) and working prototypes.',
+          part: 'Decisions on the prototype, made against the original goal.'
+        },
+        {
+          num: '04', title: 'Build and test',
+          what: 'I build the production site. Accessibility, performance budgets, keyboard journeys, and the no-JavaScript path are verified in CI as the pages are built — not patched afterwards.',
+          get: 'A staging site you can use on your own devices, with test results.',
+          part: 'Real content in final form, and a review on your actual phone.'
+        },
+        {
+          num: '05', title: 'Launch and hand over',
+          what: 'Domain, analytics, security headers, social images, and the inquiry pipeline go live. I walk you through editing, and hand over documentation a future developer can trust.',
+          get: 'A launched site, its records, and a clear path for what comes next.',
+          part: 'DNS access, a launch date, and twenty minutes for the walkthrough.'
+        }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

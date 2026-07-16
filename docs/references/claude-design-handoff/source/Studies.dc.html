@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&amp;family=Anton&amp;family=Anybody:wdth,wght@50..150,300..900&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #0E0E0D; color: #F4F3EF; }
+a { color: #8F83FF; }
+a:hover { color: #D97757; }
+::selection { background: #5B4BF3; color: #FFFEFA; }
+@keyframes ybhDriftA { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(120px,60px) scale(1.15); } 66% { transform: translate(-60px,110px) scale(0.92); } 100% { transform: translate(0,0) scale(1); } }
+@keyframes ybhHueShift { 0%, 100% { color: #8F83FF; } 33% { color: #D97757; } 66% { color: #C7A15A; } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes ybhSpin { to { transform: rotate(360deg); } }
+@keyframes ybhBar { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(0.62); } }
+@keyframes ybhPanA { 0%, 100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<main style="background: #0E0E0D">
+
+  <section data-screen-label="Studies — Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; top: -140px; left: 30%; width: 620px; height: 620px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.42), transparent 65%); filter: blur(90px); animation: ybhDriftA 30s ease-in-out infinite; pointer-events: none"></div>
+    <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 4vw, 64px) 80px; display: flex; flex-direction: column; gap: 26px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+      <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,243,239,0.55)">Brand studies</span>
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(60px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.028em; max-width: 14ch; text-wrap: balance">New ideas, <em style="font-style: italic; animation: ybhHueShift 12s ease-in-out infinite">made properly.</em></h1>
+      <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 18px; line-height: 1.65; color: rgba(244,243,239,0.8); max-width: 58ch">Each study starts with a different fictional brief — a furniture atelier, a video game launch, a clothing label — and follows it through art direction, interaction, and production code. Three worlds, one standard.</p>
+      <p style="margin: 0; display: inline-flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 400; color: rgba(244,243,239,0.6)"><span style="width: 8px; height: 8px; background: #D97757; display: inline-block; flex: none; border-radius: 50%"></span>Self-directed concepts — not commissioned client work, and labelled that way on every page.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Studies — Index" style="max-width: 1440px; margin: 0 auto; padding: 72px clamp(20px, 4vw, 64px) 112px; display: flex; flex-direction: column; gap: 28px">
+
+    <!-- Northline row -->
+    <a href="Northline Atelier.dc.html" data-comment-anchor="index-northline" style="display: grid; grid-template-columns: 7fr 5fr; text-decoration: none; color: #231B19; background: #D8D0BF; border-radius: 24px; overflow: hidden; min-height: 340px; transition: transform 0.5s cubic-bezier(0.19,1,0.22,1), box-shadow 0.5s cubic-bezier(0.19,1,0.22,1)" style-hover="transform: translateY(-6px) rotate(-0.4deg); box-shadow: 0 32px 80px rgba(0,0,0,0.5); color: #231B19">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 48px clamp(32px, 4vw, 56px); justify-content: center">
+        <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #56708F">Study 01 · Furniture &amp; art decor</span>
+        <span style="font-family: 'Source Serif 4', serif; font-weight: 500; font-size: clamp(40px, 4vw, 58px); letter-spacing: -0.015em; line-height: 1.0">Northline Atelier</span>
+        <span style="font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.6; color: rgba(35,27,25,0.75); max-width: 46ch">An editorial store for furniture and objects — one piece per spread, the working drawing sold beside the photograph.</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #5A2A26">Proves: editorial commerce · catalogue modelling · works without JS</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #FFFEFA; background: #3A5A7C; padding: 12px 24px; border-radius: 999px; align-self: flex-start; margin-top: 8px">Open study →</span>
+      </div>
+      <div style="position: relative; overflow: hidden; background: repeating-linear-gradient(-45deg, #C9BFA9 0 12px, #D2C9B5 12px 24px); background-size: 220% 220%; animation: ybhPanA 20s ease-in-out infinite">
+        <div style="position: absolute; left: 50%; bottom: 60px; width: 190px; height: 120px; margin-left: -95px; background: #5A2A26; border-radius: 12px 12px 3px 3px"></div>
+        <div style="position: absolute; left: 50%; bottom: 42px; width: 220px; height: 16px; margin-left: -110px; background: #231B19; border-radius: 3px"></div>
+        <div style="position: absolute; right: 36px; top: 36px; width: 100px; height: 128px; background: #56708F; background-image: linear-gradient(rgba(255,255,255,0.25) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.25) 1px, transparent 1px); background-size: 20px 20px; border-radius: 10px; box-shadow: 0 16px 40px rgba(0,0,0,0.3)"></div>
+      </div>
+    </a>
+
+    <!-- Sunday row -->
+    <a href="Sunday Service.dc.html" data-comment-anchor="index-sunday" style="display: grid; grid-template-columns: 5fr 7fr; text-decoration: none; color: #F1E9DC; background: #221A26; border: 1px solid rgba(241,233,220,0.14); border-radius: 24px; overflow: hidden; min-height: 340px; transition: transform 0.5s cubic-bezier(0.19,1,0.22,1), box-shadow 0.5s cubic-bezier(0.19,1,0.22,1)" style-hover="transform: translateY(-6px) rotate(0.4deg); box-shadow: 0 32px 80px rgba(0,0,0,0.6); color: #F1E9DC">
+      <div style="position: relative; overflow: hidden; background: radial-gradient(circle at 50% 120%, rgba(199,161,90,0.4), transparent 70%)">
+        <div style="position: absolute; top: 50%; left: 50%; width: 170px; height: 170px; margin: -85px 0 0 -85px; animation: ybhSpin 44s linear infinite">
+          <svg viewBox="0 0 100 100" width="170" height="170" aria-hidden="true">
+            <circle cx="50" cy="50" r="20" fill="#C7A15A"></circle>
+            <g stroke="#C7A15A" stroke-width="4" stroke-linecap="round">
+              <line x1="50" y1="6" x2="50" y2="19"></line>
+              <line x1="50" y1="81" x2="50" y2="94"></line>
+              <line x1="6" y1="50" x2="19" y2="50"></line>
+              <line x1="81" y1="50" x2="94" y2="50"></line>
+              <line x1="19" y1="19" x2="29" y2="29"></line>
+              <line x1="71" y1="71" x2="81" y2="81"></line>
+              <line x1="19" y1="81" x2="29" y2="71"></line>
+              <line x1="71" y1="29" x2="81" y2="19"></line>
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 48px clamp(32px, 4vw, 56px); justify-content: center; border-left: 1px solid rgba(241,233,220,0.14)">
+        <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #C7A15A">Study 02 · Video game launch</span>
+        <span style="font-family: 'Anton', sans-serif; font-size: clamp(38px, 3.8vw, 54px); text-transform: uppercase; line-height: 1.0; color: #A8524A">Sunday Service</span>
+        <span style="font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.6; color: rgba(241,233,220,0.75); max-width: 46ch">A campaign page for a cozy kitchen-management game — key art, shift-based modes, honest platform claims, and a wishlist pipeline.</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,233,220,0.7)">Proves: campaign design · state theming · conversion UX</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #221A26; background: #C7A15A; padding: 12px 24px; border-radius: 999px; align-self: flex-start; margin-top: 8px">Open study →</span>
+      </div>
+    </a>
+
+    <!-- Common Thread row -->
+    <a href="Common Thread.dc.html" data-comment-anchor="index-thread" style="display: grid; grid-template-columns: 7fr 5fr; text-decoration: none; color: #1E1D1B; background: #EAE5DC; border-radius: 24px; overflow: hidden; min-height: 340px; transition: transform 0.5s cubic-bezier(0.19,1,0.22,1), box-shadow 0.5s cubic-bezier(0.19,1,0.22,1)" style-hover="transform: translateY(-6px) rotate(-0.4deg); box-shadow: 0 32px 80px rgba(0,0,0,0.45); color: #1E1D1B">
+      <div style="display: flex; flex-direction: column; gap: 14px; padding: 48px clamp(32px, 4vw, 56px); justify-content: center">
+        <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #A8524A">Study 03 · Clothing label</span>
+        <span style="font-family: 'Anybody', sans-serif; font-weight: 800; font-stretch: 130%; font-size: clamp(34px, 3.4vw, 48px); text-transform: uppercase; line-height: 1.0">Common <span style="font-stretch: 60%; font-weight: 450; color: #A8524A">Thread</span></span>
+        <span style="font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.6; color: rgba(30,29,27,0.7); max-width: 46ch">An independent label with a lookbook grid, category filters, repairs-for-life, and sizing treated as first-class content.</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #56708F">Proves: lookbook commerce · filtering · inclusive sizing · print CSS</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #F1E9DC; background: #A8524A; padding: 12px 24px; border-radius: 999px; align-self: flex-start; margin-top: 8px">Open study →</span>
+      </div>
+      <div style="position: relative; overflow: hidden; display: flex; align-items: stretch; gap: 12px; padding: 32px">
+        <span style="flex: 2; background: #A8524A; border-radius: 8px; transform-origin: bottom; animation: ybhBar 3.6s ease-in-out infinite"></span>
+        <span style="flex: 1; background: #56708F; border-radius: 8px; transform-origin: bottom; animation: ybhBar 3.6s ease-in-out 0.5s infinite"></span>
+        <span style="flex: 1.5; background: #C7A15A; border-radius: 8px; transform-origin: bottom; animation: ybhBar 3.6s ease-in-out 1s infinite"></span>
+        <span style="flex: 0.8; background: #1E1D1B; border-radius: 8px; transform-origin: bottom; animation: ybhBar 3.6s ease-in-out 1.5s infinite"></span>
+      </div>
+    </a>
+
+    <!-- Signal/Noise: coming -->
+    <div style="display: flex; align-items: center; justify-content: space-between; gap: 32px; border: 1px dashed rgba(244,243,239,0.3); border-radius: 24px; padding: 36px clamp(32px, 4vw, 56px)">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(244,243,239,0.5)">Post-launch · Independent record label</span>
+        <span style="font-family: 'Onest', sans-serif; font-weight: 700; font-size: 30px; letter-spacing: -0.01em; color: rgba(244,243,239,0.85)">Signal/Noise Records</span>
+        <span style="font-family: 'Onest', sans-serif; font-weight: 300; font-size: 14.5px; line-height: 1.6; color: rgba(244,243,239,0.55); max-width: 60ch">A dark typographic catalogue with an opt-in, audio-reactive canvas. The route owns its own bundle — the sales site never pays for it.</span>
+      </div>
+      <span style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #D97757; border: 1px solid rgba(217,119,87,0.5); padding: 10px 20px; border-radius: 999px; white-space: nowrap">In progress</span>
+    </div>
+  </section>
+
+  <section data-screen-label="Studies — CTA" style="background: #0E0E0D; color: #F4F3EF; position: relative; overflow: hidden; border-top: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; bottom: -200px; left: 40%; width: 620px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.4), transparent 68%); filter: blur(90px); animation: ybhDriftA 30s ease-in-out infinite; pointer-events: none"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 48px">
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(38px, 3.8vw, 56px); line-height: 1.06; letter-spacing: -0.02em; max-width: 22ch">Your brief will be real. <em style="font-style: italic; color: #D97757">The standard is the same.</em></h2>
+      <a href="Start.dc.html" style="font-family: 'Space Mono', monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: #FFFEFA; background: #5B4BF3; padding: 20px 38px; border-radius: 999px; white-space: nowrap; transition: background 0.4s cubic-bezier(0.19,1,0.22,1), transform 0.4s cubic-bezier(0.19,1,0.22,1), box-shadow 0.4s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #D97757; color: #171716; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(217,119,87,0.35)">Start a project</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,520px"></dc-import>
+</x-dc>
+</body>
+</html>

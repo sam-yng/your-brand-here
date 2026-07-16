@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;family=Anybody:wdth,wght@50..150,300..900&amp;family=Public+Sans:wght@300..800&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #EAE5DC; color: #1E1D1B; }
+a { color: #56708F; }
+a:hover { color: #A8524A; }
+::selection { background: #A8524A; color: #F1E9DC; }
+@keyframes ybhBarX { 0%, 100% { transform: scaleX(1); } 50% { transform: scaleX(0.55); } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<!-- Studio strip -->
+<div style="background: #0E0E0D; border-bottom: 1px solid rgba(244,243,239,0.14)">
+  <div style="max-width: 1440px; margin: 0 auto; padding: 12px clamp(20px, 4vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+    <a href="Studies.dc.html" style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: #F4F3EF" style-hover="color: #D97757">← Studies · 03 Common Thread</a>
+    <span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 400; color: rgba(244,243,239,0.6)"><span style="width: 8px; height: 8px; background: #D97757; display: inline-block; flex: none; border-radius: 50%"></span>Self-directed concept — not a real label. Built to explore lookbook commerce.</span>
+  </div>
+</div>
+
+<main data-screen-label="Study — Common Thread" style="background: #EAE5DC; color: #1E1D1B">
+
+  <!-- Lookbook hero -->
+  <section style="border-bottom: 2.5px solid #1E1D1B">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 76px clamp(20px, 4vw, 64px) 56px; display: flex; flex-direction: column; gap: 26px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 32px; flex-wrap: wrap">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">Independent clothing label · Fictional · Melbourne</span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #A8524A">Made slowly. Mended forever.</span>
+      </div>
+      <h1 style="margin: 0; font-family: 'Anybody', sans-serif; font-weight: 850; font-stretch: 140%; font-size: clamp(64px, 8vw, 118px); line-height: 0.92; text-transform: uppercase; letter-spacing: 0.005em">Common<br><span style="font-stretch: 58%; font-weight: 450; color: #A8524A">Thread</span></h1>
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span style="flex: 2.2; height: 14px; background: #A8524A; transform-origin: left; animation: ybhBarX 3.6s ease-in-out infinite"></span>
+        <span style="flex: 1; height: 14px; background: #56708F; transform-origin: left; animation: ybhBarX 3.6s ease-in-out 0.5s infinite"></span>
+        <span style="flex: 1.5; height: 14px; background: #C7A15A; transform-origin: left; animation: ybhBarX 3.6s ease-in-out 1s infinite"></span>
+        <span style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; white-space: nowrap">Collection 04 — Mendings</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Lookbook grid + filters -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 56px clamp(20px, 4vw, 64px) 88px; display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; justify-content: space-between; align-items: center; gap: 28px; flex-wrap: wrap">
+      <h2 style="margin: 0; font-family: 'Anybody', sans-serif; font-weight: 750; font-stretch: 110%; font-size: 34px; text-transform: uppercase">The pieces</h2>
+      <div style="display: flex; gap: 10px" role="group" aria-label="Filter garments">
+        <sc-for list="{{ filters }}" as="f" hint-placeholder-count="4">
+          <button onClick="{{ f.pick }}" style="{{ f.style }}">{{ f.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; min-height: 640px; align-content: start">
+      <sc-for list="{{ items }}" as="it" hint-placeholder-count="6">
+        <div style="{{ it.tileStyle }}" style-hover="transform: translateY(-6px) rotate(-0.5deg); box-shadow: 0 20px 48px rgba(30,29,27,0.22)">
+          <div style="{{ it.swatchStyle }}">
+            <span style="font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.8">Garment placeholder</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px 20px">
+            <div style="display: flex; justify-content: space-between; align-items: baseline; gap: 12px">
+              <span style="font-family: 'Anybody', sans-serif; font-weight: 750; font-stretch: 105%; font-size: 20px; text-transform: uppercase; line-height: 1.1">{{ it.name }}</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700; color: #A8524A">{{ it.price }}</span>
+            </div>
+            <span style="font-family: 'Public Sans', sans-serif; font-size: 13.5px; font-weight: 500; color: rgba(30,29,27,0.65)">{{ it.fabric }}</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px">
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid currentColor; padding: 4px 9px; border-radius: 999px; white-space: nowrap">{{ it.category }}</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: 1.5px solid currentColor; padding: 4px 9px; border-radius: 999px; white-space: nowrap">XS–4XL</span>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin: 0; font-family: 'Public Sans', sans-serif; font-size: 14px; font-weight: 500; color: rgba(30,29,27,0.6); max-width: 66ch">Filters are keyboard operable and announced to screen readers; without JavaScript they render as links and state lives in the URL. The lookbook also ships as a print stylesheet — one clean spread for the studio wall.</p>
+  </section>
+
+  <!-- Sizing & care drawer -->
+  <button onClick="{{ toggleDrawer }}" aria-expanded="{{ drawerOpen }}" style="position: fixed; right: 24px; bottom: 24px; z-index: 80; display: flex; align-items: center; gap: 10px; font-family: 'Space Mono', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: #56708F; color: #F1E9DC; border: none; padding: 15px 22px; border-radius: 999px; cursor: pointer; box-shadow: 0 8px 28px rgba(30,29,27,0.28); transition: background 0.35s cubic-bezier(0.19,1,0.22,1), transform 0.35s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #1E1D1B; transform: translateY(-2px)">
+    <span style="width: 9px; height: 9px; background: #C7A15A; display: inline-block; border-radius: 50%"></span>{{ drawerLabel }}
+  </button>
+  <div style="{{ drawerStyle }}">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 36px clamp(20px, 4vw, 64px) 40px; display: grid; grid-template-columns: 3fr 9fr; gap: clamp(28px, 4vw, 64px)">
+      <span style="font-family: 'Anybody', sans-serif; font-weight: 800; font-stretch: 120%; font-size: 26px; text-transform: uppercase; color: #C7A15A">Sizing &amp; care, always</span>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px">
+        <sc-for list="{{ careItems }}" as="c" hint-placeholder-count="6">
+          <span style="display: flex; align-items: baseline; gap: 12px; font-family: 'Public Sans', sans-serif; font-size: 14.5px; font-weight: 500; line-height: 1.5"><span style="width: 7px; height: 7px; background: #C7A15A; display: inline-block; flex: none; transform: translateY(-2px); border-radius: 50%"></span>{{ c }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- Build note -->
+  <section style="background: #1E1D1B; color: #EAE5DC">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 80px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: 4fr 4fr 4fr; gap: clamp(32px, 4vw, 72px)">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C7A15A">Build note</span>
+        <h2 style="margin: 0; font-family: 'Anybody', sans-serif; font-weight: 750; font-stretch: 110%; font-size: 30px; text-transform: uppercase; line-height: 1.08">Sizing as a design input.</h2>
+        <p style="margin: 0; font-family: 'Public Sans', sans-serif; font-weight: 400; font-size: 15px; line-height: 1.7; color: rgba(234,229,220,0.78)">No hidden size charts, no vanity ranges. XS–4XL on every garment, model measurements on every photo, and repairs-for-life stated where the price is — not buried in an FAQ.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C7A15A">It demonstrates</span>
+        <sc-for list="{{ proves }}" as="p" hint-placeholder-count="4">
+          <span style="display: flex; align-items: baseline; gap: 12px; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.55"><span style="width: 6px; height: 6px; background: #C7A15A; display: inline-block; flex: none; transform: translateY(-2px)"></span>{{ p }}</span>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #C7A15A">Under the hood</span>
+        <sc-for list="{{ hood }}" as="h" hint-placeholder-count="4">
+          <span style="display: flex; align-items: baseline; gap: 12px; font-family: 'Public Sans', sans-serif; font-size: 15px; font-weight: 500; line-height: 1.55"><span style="width: 6px; height: 6px; border: 1px solid #C7A15A; display: inline-block; flex: none; transform: translateY(-2px)"></span>{{ h }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 88px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 48px">
+    <h2 style="margin: 0; font-family: 'Anybody', sans-serif; font-weight: 750; font-stretch: 110%; font-size: clamp(28px, 3vw, 42px); text-transform: uppercase; line-height: 1.08; max-width: 24ch">Making clothes with a conscience, and a site without one?</h2>
+    <a href="Start.dc.html" style="font-family: 'Public Sans', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; color: #F1E9DC; background: #A8524A; padding: 18px 34px; border-radius: 999px; white-space: nowrap; transition: background 0.35s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #1E1D1B; color: #F1E9DC">Discuss a similar challenge</a>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,520px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { filter: 'all', drawer: false };
+
+  renderVals() {
+    const f = this.state.filter;
+    const filters = [
+      { key: 'all', label: 'All' },
+      { key: 'knits', label: 'Knits' },
+      { key: 'outerwear', label: 'Outerwear' },
+      { key: 'accessories', label: 'Accessories' }
+    ];
+    const items = [
+      { name: 'Field Jacket', key: 'outerwear', category: 'Outerwear', fabric: 'Waxed organic cotton, corozo buttons', price: '$340', bg: '#A8524A', fg: '#F1E9DC' },
+      { name: 'Rib Crew', key: 'knits', category: 'Knits', fabric: 'Undyed merino, fully fashioned', price: '$180', bg: '#EFE9DD', fg: '#1E1D1B' },
+      { name: 'Fisherman Cardigan', key: 'knits', category: 'Knits', fabric: 'Aran-weight lambswool', price: '$260', bg: '#56708F', fg: '#F1E9DC' },
+      { name: 'Wool Overshirt', key: 'outerwear', category: 'Outerwear', fabric: 'Deadstock melton wool', price: '$290', bg: '#1E1D1B', fg: '#EAE5DC' },
+      { name: 'Watch Cap', key: 'accessories', category: 'Accessories', fabric: 'Merino rib, one size', price: '$60', bg: '#C7A15A', fg: '#1E1D1B' },
+      { name: 'Canvas Tote', key: 'accessories', category: 'Accessories', fabric: '18oz duck canvas, repairable straps', price: '$85', bg: '#EFE9DD', fg: '#56708F' }
+    ];
+    const visible = items.filter((it) => f === 'all' || it.key === f);
+    return {
+      filters: filters.map((fl) => ({
+        label: fl.label,
+        pick: () => this.setState({ filter: fl.key }),
+        style: 'font-family:Space Mono,monospace;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:11px 20px;border:2px solid #1E1D1B;border-radius:999px;cursor:pointer;transition:background 0.25s ease,color 0.25s ease;background:' + (f === fl.key ? '#1E1D1B' : 'transparent') + ';color:' + (f === fl.key ? '#EAE5DC' : '#1E1D1B')
+      })),
+      items: visible.map((it) => ({
+        ...it,
+        tileStyle: 'display:flex;flex-direction:column;border-radius:16px;overflow:hidden;background:#FFFEFA;border:1px solid rgba(30,29,27,0.18);color:#1E1D1B;transition:transform 0.4s cubic-bezier(0.19,1,0.22,1),box-shadow 0.4s cubic-bezier(0.19,1,0.22,1)',
+        swatchStyle: 'height:220px;display:flex;align-items:flex-end;padding:16px 18px;background:' + it.bg + ';color:' + it.fg
+      })),
+      toggleDrawer: () => this.setState({ drawer: !this.state.drawer }),
+      drawerOpen: this.state.drawer,
+      drawerLabel: this.state.drawer ? 'Close sizing & care' : 'Sizing & care',
+      drawerStyle: 'position:fixed;left:0;right:0;bottom:0;z-index:70;background:#1E1D1B;color:#EAE5DC;border-top:4px solid #C7A15A;transition:transform 0.28s ease;transform:translateY(' + (this.state.drawer ? '0' : '105%') + ')',
+      careItems: [
+        'Every garment in XS–4XL, graded properly — not scaled up',
+        'Model height and size worn listed on every photograph',
+        'Repairs for life: send it back, we mend it, you pay postage',
+        'Fabric origin and mill named on each product page',
+        'Care instructions written in plain language, not symbols alone',
+        'Returns without interrogation, 60 days, worn-once welcome'
+      ],
+      proves: [
+        'Lookbook commerce with a point of view',
+        'Category filtering that works without JavaScript',
+        'Inclusive sizing treated as content, not compliance',
+        'Print CSS: the lookbook as a physical spread'
+      ],
+      hood: [
+        'Scoped tokens: [data-study="common-thread"] owns the label palette',
+        'Filters render as links; state lives in the URL',
+        'Persistent drawer, keyboard and screen-reader operable',
+        'Variable-width display type, one family, self-hosted'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

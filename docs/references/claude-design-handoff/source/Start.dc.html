@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #0E0E0D; color: #F4F3EF; }
+a { color: #8F83FF; }
+a:hover { color: #D97757; }
+::selection { background: #5B4BF3; color: #FFFEFA; }
+@keyframes ybhDriftA { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(120px,60px) scale(1.15); } 66% { transform: translate(-60px,110px) scale(0.92); } 100% { transform: translate(0,0) scale(1); } }
+@keyframes ybhHueShift { 0%, 100% { color: #8F83FF; } 33% { color: #D97757; } 66% { color: #C7A15A; } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+input:focus, textarea:focus, select:focus { outline: 2px solid #5B4BF3; outline-offset: 1px; }
+input::placeholder, textarea::placeholder { color: #B9B5AA; }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,68px"></dc-import>
+
+<main style="background: #0E0E0D">
+
+  <section data-screen-label="Start — Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; top: -160px; right: -120px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.5), transparent 65%); filter: blur(90px); animation: ybhDriftA 28s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 4vw, 64px) 80px; display: flex; flex-direction: column; gap: 24px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+      <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,243,239,0.55)">Start a project</span>
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(56px, 6vw, 88px); line-height: 1.0; letter-spacing: -0.025em; max-width: 18ch; text-wrap: balance">Put <em style="font-style: italic; animation: ybhHueShift 12s ease-in-out infinite">your brand</em> here.</h1>
+      <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 18px; line-height: 1.65; color: rgba(244,243,239,0.8); max-width: 56ch">Tell me what you are building, what is not working now, and what a better website needs to change. I reply to every genuine inquiry within two business days.</p>
+    </div>
+  </section>
+
+  <section data-screen-label="Start — Form" style="background: #F4F3EF; color: #171716">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(20px, 4vw, 64px) 112px; display: grid; grid-template-columns: 7fr 4fr; gap: clamp(48px, 6vw, 104px); align-items: start">
+
+    <form onSubmit="{{ submit }}" style="display: flex; flex-direction: column; gap: 26px; background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 24px; padding: clamp(32px, 3.5vw, 56px)">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px">
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Name *</span>
+          <input value="{{ name }}" onChange="{{ setName }}" type="text" autocomplete="name" style="{{ nameStyle }}">
+          <sc-if value="{{ nameError }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 500; color: #C2311C">Please tell me your name.</span></sc-if>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Email *</span>
+          <input value="{{ email }}" onChange="{{ setEmail }}" type="email" autocomplete="email" style="{{ emailStyle }}">
+          <sc-if value="{{ emailError }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 500; color: #C2311C">A working email is how I reply.</span></sc-if>
+        </label>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px">
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Company, collective, or project</span>
+          <input type="text" autocomplete="organization" style="font-family: 'Onest', sans-serif; font-size: 15.5px; font-weight: 400; padding: 13px 14px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6964">Current website <span style="font-weight: 400; text-transform: none; letter-spacing: 0">(optional)</span></span>
+          <input type="url" placeholder="https://" style="font-family: 'Onest', sans-serif; font-size: 15.5px; font-weight: 400; padding: 13px 14px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+        </label>
+      </div>
+      <label style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">What are you making or changing? *</span>
+        <textarea value="{{ brief }}" onChange="{{ setBrief }}" rows="4" style="{{ briefStyle }}"></textarea>
+        <sc-if value="{{ briefError }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 500; color: #C2311C">A sentence or two is enough — what is the project?</span></sc-if>
+      </label>
+      <label style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">What does the new site need to achieve?</span>
+        <textarea rows="3" style="font-family: 'Onest', sans-serif; font-size: 15.5px; font-weight: 400; line-height: 1.6; padding: 13px 14px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716; resize: vertical"></textarea>
+      </label>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 26px">
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Project type</span>
+          <select style="font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 400; padding: 13px 12px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+            <option>New site / launch</option>
+            <option>Repositioning an existing site</option>
+            <option>New offer or section</option>
+            <option>Not sure yet</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Indicative budget (AUD)</span>
+          <select style="font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 400; padding: 13px 12px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+            <option>Under $10k</option>
+            <option>$10k – $20k</option>
+            <option>$20k – $40k</option>
+            <option>$40k +</option>
+            <option>Help me scope it</option>
+          </select>
+        </label>
+        <label style="display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #171716">Desired timing</span>
+          <select style="font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 400; padding: 13px 12px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+            <option>As soon as we can</option>
+            <option>In the next 1–3 months</option>
+            <option>This year</option>
+            <option>Just exploring</option>
+          </select>
+        </label>
+      </div>
+      <label style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: #6B6964">How did you find me? <span style="font-weight: 400; text-transform: none; letter-spacing: 0">(optional)</span></span>
+        <input type="text" style="font-family: 'Onest', sans-serif; font-size: 15.5px; font-weight: 400; padding: 13px 14px; border: 1px solid #D7D4CC; border-radius: 2px; background: #FFFEFA; color: #171716">
+      </label>
+      <label style="display: flex; align-items: baseline; gap: 12px; cursor: pointer">
+        <input checked="{{ agreed }}" onChange="{{ toggleAgree }}" type="checkbox" style="width: 17px; height: 17px; accent-color: #5B4BF3; transform: translateY(2px)">
+        <span style="font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 400; line-height: 1.55; color: #171716">I agree that this inquiry is stored and emailed to Sam so he can reply. Details in the <a href="Privacy.dc.html" style="color: #5B4BF3">privacy note</a>. *</span>
+      </label>
+      <sc-if value="{{ agreeError }}" hint-placeholder-val="{{ false }}"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 500; color: #C2311C">I can only reply if you're comfortable with the privacy note.</span></sc-if>
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid #D7D4CC; padding-top: 26px">
+        <div style="display: flex; align-items: center; gap: 10px; border: 1px dashed #B9B5AA; padding: 12px 16px">
+          <span style="width: 22px; height: 22px; border: 2px solid #5B4BF3; border-radius: 3px; display: inline-block"></span>
+          <span style="font-family: 'Onest', sans-serif; font-size: 12px; font-weight: 500; letter-spacing: 0.06em; color: #6B6964">Turnstile verification — verified server-side before anything is sent</span>
+        </div>
+        <button type="submit" style="{{ submitStyle }}">{{ submitLabel }}</button>
+      </div>
+    </form>
+
+    <aside style="display: flex; flex-direction: column; gap: 28px; position: sticky; top: 100px">
+      <div style="display: flex; flex-direction: column; gap: 14px; border-top: 2px solid #171716; padding-top: 20px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #6B6964">What happens next</span>
+        <div style="display: flex; flex-direction: column; gap: 16px">
+          <span style="display: flex; gap: 14px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.6"><span style="font-family: 'Newsreader', serif; font-style: italic; color: #5B4BF3; font-size: 18px">1</span>I read your brief properly and reply within two business days — with questions, not a quote.</span>
+          <span style="display: flex; gap: 14px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.6"><span style="font-family: 'Newsreader', serif; font-style: italic; color: #5B4BF3; font-size: 18px">2</span>If it looks like a fit, we book a call to frame the goal and the shape of the engagement.</span>
+          <span style="display: flex; gap: 14px; font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 300; line-height: 1.6"><span style="font-family: 'Newsreader', serif; font-style: italic; color: #5B4BF3; font-size: 18px">3</span>If it doesn't, I say so honestly and point you somewhere better if I can.</span>
+        </div>
+      </div>
+      <div style="background: #DDE7E3; border-radius: 16px; padding: 26px 26px; display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase">Prefer plain email?</span>
+        <span style="font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 400">hello@yourbrandhere.studio works just as well. The form only exists to ask the useful questions up front.</span>
+      </div>
+      <p style="margin: 0; font-family: 'Onest', sans-serif; font-size: 13px; font-weight: 400; line-height: 1.6; color: #6B6964">This form works without JavaScript, never claims success before the server accepts your inquiry, and keeps what you typed if anything fails.</p>
+    </aside>
+    </div>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { name: '', email: '', brief: '', agreed: false, tried: false, sending: false };
+
+  componentWillUnmount() { clearTimeout(this._t); }
+
+  renderVals() {
+    const s = this.state;
+    const nameError = s.tried && s.name.trim().length < 2;
+    const emailError = s.tried && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s.email);
+    const briefError = s.tried && s.brief.trim().length < 8;
+    const agreeError = s.tried && !s.agreed;
+    const field = (err) => 'font-family:Onest,sans-serif;font-size:15.5px;font-weight:400;padding:13px 14px;border:1px solid ' + (err ? '#C2311C' : '#D7D4CC') + ';border-radius:2px;background:#FFFEFA;color:#171716';
+    return {
+      name: s.name, email: s.email, brief: s.brief, agreed: s.agreed,
+      setName: (e) => this.setState({ name: e.target.value }),
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setBrief: (e) => this.setState({ brief: e.target.value }),
+      toggleAgree: (e) => this.setState({ agreed: e.target.checked }),
+      nameError, emailError, briefError, agreeError,
+      nameStyle: field(nameError),
+      emailStyle: field(emailError),
+      briefStyle: field(briefError) + ';line-height:1.6;resize:vertical',
+      submitLabel: s.sending ? 'Sending…' : 'Send project brief',
+      submitStyle: 'font-family:Onest,sans-serif;font-size:14px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#FFFEFA;background:' + (s.sending ? '#171716' : '#5B4BF3') + ';border:none;padding:17px 34px;border-radius:999px;cursor:pointer;transition:background 0.4s cubic-bezier(0.19,1,0.22,1),transform 0.4s cubic-bezier(0.19,1,0.22,1)',
+      submit: (e) => {
+        e.preventDefault();
+        const ok = s.name.trim().length >= 2 && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(s.email) && s.brief.trim().length >= 8 && s.agreed;
+        if (!ok) { this.setState({ tried: true }); return; }
+        this.setState({ sending: true });
+        this._t = setTimeout(() => { window.location.href = 'Thanks.dc.html'; }, 900);
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

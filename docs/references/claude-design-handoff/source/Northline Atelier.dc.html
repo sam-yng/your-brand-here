@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&amp;family=Archivo:wght@300..700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #D8D0BF; color: #231B19; }
+a { color: #3A5A7C; }
+a:hover { color: #5A2A26; }
+::selection { background: #3A5A7C; color: #FFFEFA; }
+@keyframes ybhPanA { 0%, 100% { background-position: 0% 0%; } 50% { background-position: 100% 100%; } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<!-- Studio strip -->
+<div style="background: #0E0E0D; border-bottom: 1px solid rgba(244,243,239,0.14)">
+  <div style="max-width: 1440px; margin: 0 auto; padding: 12px clamp(20px, 4vw, 64px); display: flex; align-items: center; justify-content: space-between; gap: 24px">
+    <a href="Studies.dc.html" style="font-family: 'Space Mono', monospace; font-size: 11.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; color: #F4F3EF" style-hover="color: #D97757">← Studies · 01 Northline Atelier</a>
+    <span style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 400; color: rgba(244,243,239,0.6)"><span style="width: 8px; height: 8px; background: #D97757; display: inline-block; flex: none; border-radius: 50%"></span>Self-directed concept — not commissioned client work. Built to explore editorial commerce.</span>
+  </div>
+</div>
+
+<main data-screen-label="Study — Northline Atelier" style="background: #D8D0BF; color: #231B19">
+
+  <!-- Hero -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 84px clamp(20px, 4vw, 64px) 72px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 32px; border-bottom: 2px solid #231B19; padding-bottom: 28px">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #5A2A26">Furniture &amp; art decor · Fictional store · Sydney</span>
+        <h1 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 480; font-size: clamp(60px, 6.5vw, 96px); letter-spacing: -0.02em; line-height: 0.98">Northline Atelier</h1>
+      </div>
+      <span style="font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 400; font-size: 22px; color: #5A2A26; white-space: nowrap">Objects with a spine.</span>
+    </div>
+    <div style="display: grid; grid-template-columns: 7fr 5fr; gap: clamp(40px, 5vw, 88px); padding-top: 32px">
+      <p style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 300; font-size: 17.5px; line-height: 1.7; max-width: 62ch">The brief: a small atelier selling furniture and art decor needs its catalogue to feel like a folio, not a warehouse feed. The answer is an editorial store: limestone and oxblood instead of white and grey, one object per spread, and the working drawing sold alongside the photograph — because buyers of good objects care how they are made.</p>
+      <div style="display: flex; gap: 12px; align-items: center; justify-content: flex-end">
+        <span style="width: 54px; height: 54px; background: #D8D0BF; border: 1px solid #231B19"></span>
+        <span style="width: 54px; height: 54px; background: #5A2A26"></span>
+        <span style="width: 54px; height: 54px; background: #3A5A7C"></span>
+        <span style="width: 54px; height: 54px; background: #EDE7D8; border: 1px solid rgba(35,27,25,0.25)"></span>
+        <span style="font-family: 'Archivo', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #5A2A26; writing-mode: vertical-rl; transform: rotate(180deg)">Palette</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Collection index: hover changes media -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) 88px; display: grid; grid-template-columns: 5fr 7fr; gap: clamp(32px, 4vw, 72px); align-items: stretch">
+    <div style="display: flex; flex-direction: column">
+      <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A2A26; padding-bottom: 14px; border-bottom: 2px solid #231B19">Collection 03 — hover to preview</span>
+      <sc-for list="{{ pieces }}" as="piece" hint-placeholder-count="4">
+        <div onMouseEnter="{{ piece.hover }}" onFocus="{{ piece.hover }}" tabIndex="0" style="{{ piece.rowStyle }}">
+          <span style="font-family: 'Archivo', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: #3A5A7C; width: 34px">{{ piece.num }}</span>
+          <span style="font-family: 'Source Serif 4', serif; font-weight: 480; font-size: 27px; letter-spacing: -0.01em; flex: 1">{{ piece.name }}</span>
+          <span style="font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 400; color: rgba(35,27,25,0.62)">{{ piece.meta }}</span>
+          <span style="font-family: 'Space Mono', monospace; font-size: 15px; font-weight: 700; color: #5A2A26">{{ piece.price }}</span>
+        </div>
+      </sc-for>
+      <p style="margin: auto 0 0; padding-top: 24px; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 400; line-height: 1.6; color: rgba(35,27,25,0.62); max-width: 42ch">Without JavaScript, the collection renders as a plain linked list and every object keeps its own page. The preview is an enhancement, not the store.</p>
+    </div>
+
+    <div style="position: relative; min-height: 480px; border: 1px solid #231B19; background: #EDE7D8; overflow: hidden; border-radius: 4px">
+      <div style="{{ media0 }}">
+        <div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, #C9BFA9 0 12px, #D2C9B5 12px 24px); background-size: 220% 220%; animation: ybhPanA 18s ease-in-out infinite"></div>
+        <div style="position: absolute; left: 50%; bottom: 24%; width: 220px; height: 150px; margin-left: -110px; background: #5A2A26; border-radius: 14px 14px 3px 3px"></div>
+        <div style="position: absolute; left: 50%; bottom: 18%; width: 260px; height: 18px; margin-left: -130px; background: #231B19; border-radius: 3px"></div>
+      </div>
+      <div style="{{ media1 }}">
+        <div style="position: absolute; inset: 0; background: repeating-linear-gradient(0deg, #D2C9B5 0 16px, #C4B89E 16px 32px)"></div>
+        <div style="position: absolute; left: 12%; right: 12%; bottom: 22%; height: 34%; background: #3A5A7C; border-radius: 4px"></div>
+        <div style="position: absolute; left: 16%; bottom: 16%; width: 10px; height: 8%; background: #231B19"></div>
+        <div style="position: absolute; right: 16%; bottom: 16%; width: 10px; height: 8%; background: #231B19"></div>
+      </div>
+      <div style="{{ media2 }}">
+        <div style="position: absolute; inset: 0; background: #EDE7D8"></div>
+        <div style="position: absolute; top: 14%; left: 50%; width: 150px; height: 150px; margin-left: -75px; border-radius: 50%; background: radial-gradient(circle, #C7A15A, rgba(199,161,90,0.15) 70%)"></div>
+        <div style="position: absolute; top: 40%; left: 50%; width: 6px; height: 42%; margin-left: -3px; background: #231B19"></div>
+      </div>
+      <div style="{{ media3 }}">
+        <div style="position: absolute; inset: 0; background: #5A2A26"></div>
+        <div style="position: absolute; inset: 14%; border-radius: 50%; border: 10px solid #D8D0BF; background: linear-gradient(160deg, #EDE7D8, #C9BFA9)"></div>
+      </div>
+      <div style="position: absolute; left: 0; right: 0; bottom: 0; padding: 16px 20px; display: flex; justify-content: space-between; align-items: baseline; background: linear-gradient(transparent, rgba(35,27,25,0.55))">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFEFA">{{ activeCaption }}</span>
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 400; letter-spacing: 0.08em; color: rgba(255,254,250,0.8)">{{ activeMeta }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- In the room / The drawing -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 0 clamp(20px, 4vw, 64px) 96px">
+    <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 28px">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A2A26">Signature interaction</span>
+        <h2 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 480; font-size: 38px; letter-spacing: -0.015em">The object and its drawing are the same fact.</h2>
+      </div>
+      <div style="display: flex; border: 1.5px solid #231B19; border-radius: 999px; overflow: hidden; flex: none">
+        <button onClick="{{ showPhoto }}" style="{{ btnPhoto }}">In the room</button>
+        <button onClick="{{ showPlan }}" style="{{ btnPlan }}">The drawing</button>
+      </div>
+    </div>
+    <div style="position: relative; height: 420px; border: 1px solid #231B19; overflow: hidden; background: #EDE7D8; border-radius: 4px">
+      <div style="{{ compPhoto }}">
+        <div style="position: absolute; inset: 0; background: repeating-linear-gradient(-45deg, #C9BFA9 0 12px, #D2C9B5 12px 24px); background-size: 220% 220%; animation: ybhPanA 22s ease-in-out infinite"></div>
+        <div style="position: absolute; left: 12%; bottom: 18%; width: 30%; height: 34%; background: #5A2A26; border-radius: 12px 12px 3px 3px"></div>
+        <div style="position: absolute; left: 10%; bottom: 13%; width: 36%; height: 16px; background: #231B19; border-radius: 3px"></div>
+        <div style="position: absolute; right: 14%; bottom: 13%; width: 8px; height: 44%; background: #231B19"></div>
+        <div style="position: absolute; right: 9%; top: 22%; width: 130px; height: 130px; border-radius: 50%; background: radial-gradient(circle, #C7A15A, rgba(199,161,90,0.12) 70%)"></div>
+        <span style="position: absolute; top: 18px; left: 20px; font-family: 'Archivo', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #5A2A26">Placeholder — Loma chair &amp; Halo lamp, styled room</span>
+      </div>
+      <div style="{{ compPlan }}">
+        <div style="position: absolute; inset: 0; background: #3A5A7C; background-image: linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px); background-size: 26px 26px"></div>
+        <div style="position: absolute; left: 12%; bottom: 18%; width: 30%; height: 34%; border: 1.5px solid rgba(255,255,255,0.85); border-radius: 12px 12px 3px 3px"></div>
+        <div style="position: absolute; left: 10%; bottom: 13%; width: 36%; height: 16px; border: 1.5px solid rgba(255,255,255,0.85)"></div>
+        <div style="position: absolute; right: 14%; bottom: 13%; width: 8px; height: 44%; border: 1.5px solid rgba(255,255,255,0.85)"></div>
+        <span style="position: absolute; top: 18px; left: 20px; font-family: 'Archivo', sans-serif; font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #FFFEFA">Placeholder — working drawing 1:20, walnut &amp; bouclé</span>
+      </div>
+    </div>
+    <p style="margin: 18px 0 0; font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 400; line-height: 1.65; color: rgba(35,27,25,0.7); max-width: 66ch">Every object pairs the styled photograph with the working drawing that produced it. The toggle crossfades in place — no layout shift, keyboard operable, and both states ship in the HTML so the pairing survives without JavaScript.</p>
+  </section>
+
+  <!-- Build note -->
+  <section style="background: #5A2A26; color: #D8D0BF">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 80px clamp(20px, 4vw, 64px); display: grid; grid-template-columns: 4fr 4fr 4fr; gap: clamp(32px, 4vw, 72px)">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8A598">Build note</span>
+        <h2 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 480; font-size: 32px; letter-spacing: -0.01em; line-height: 1.15">What this study proves, honestly.</h2>
+        <p style="margin: 0; font-family: 'Archivo', sans-serif; font-weight: 300; font-size: 15px; line-height: 1.7; color: rgba(216,208,191,0.85)">A fictional store, followed through as if it were real: catalogue model, art direction, product pages, and production constraints decided together — not styled afterwards.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8A598">It demonstrates</span>
+        <sc-for list="{{ proves }}" as="p" hint-placeholder-count="4">
+          <span style="display: flex; align-items: baseline; gap: 12px; font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.55"><span style="width: 6px; height: 6px; background: #E8A598; display: inline-block; flex: none; transform: translateY(-2px)"></span>{{ p }}</span>
+        </sc-for>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 12px">
+        <span style="font-family: 'Archivo', sans-serif; font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #E8A598">Under the hood</span>
+        <sc-for list="{{ hood }}" as="h" hint-placeholder-count="4">
+          <span style="display: flex; align-items: baseline; gap: 12px; font-family: 'Archivo', sans-serif; font-size: 15px; font-weight: 400; line-height: 1.55"><span style="width: 6px; height: 6px; border: 1px solid #E8A598; display: inline-block; flex: none; transform: translateY(-2px)"></span>{{ h }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="max-width: 1440px; margin: 0 auto; padding: 88px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 48px">
+    <h2 style="margin: 0; font-family: 'Source Serif 4', serif; font-weight: 480; font-size: clamp(32px, 3.2vw, 46px); letter-spacing: -0.015em; line-height: 1.1; max-width: 22ch">Selling considered objects through an unconsidered website?</h2>
+    <a href="Start.dc.html" style="font-family: 'Archivo', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: #FFFEFA; background: #3A5A7C; padding: 18px 34px; border-radius: 999px; white-space: nowrap; transition: background 0.35s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #231B19; color: #FFFEFA">Discuss a similar challenge</a>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,520px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0, view: 'photo' };
+
+  renderVals() {
+    const a = this.state.active;
+    const v = this.state.view;
+    const data = [
+      { num: '01', name: 'Loma Chair', meta: 'Walnut · bouclé', price: '$1,850', caption: 'Loma Chair', metaLong: 'Solid walnut · edition of 40' },
+      { num: '02', name: 'Meridian Credenza', meta: 'Oak · steel', price: '$4,200', caption: 'Meridian Credenza', metaLong: 'Fumed oak · made to order' },
+      { num: '03', name: 'Halo Floor Lamp', meta: 'Brass · linen', price: '$980', caption: 'Halo Floor Lamp', metaLong: 'Aged brass · dimmable' },
+      { num: '04', name: 'Terra Mirror', meta: 'Travertine', price: '$1,340', caption: 'Terra Mirror', metaLong: 'Honed travertine · edition of 25' }
+    ];
+    const layer = (i) => 'position:absolute;inset:0;transition:opacity 0.24s ease;opacity:' + (a === i ? 1 : 0) + ';pointer-events:none';
+    const comp = (name) => 'position:absolute;inset:0;transition:opacity 0.3s ease;opacity:' + (v === name ? 1 : 0) + ';pointer-events:none';
+    const btn = (name) => 'font-family:Archivo,sans-serif;font-size:12.5px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:12px 22px;border:none;cursor:pointer;transition:background 0.25s ease,color 0.25s ease;background:' + (v === name ? '#231B19' : 'transparent') + ';color:' + (v === name ? '#D8D0BF' : '#231B19');
+    return {
+      pieces: data.map((p, i) => ({
+        ...p,
+        hover: () => this.setState({ active: i }),
+        rowStyle: 'display:flex;align-items:baseline;gap:14px;padding:20px 12px;border-bottom:1px solid rgba(35,27,25,0.3);cursor:pointer;outline:none;transition:background 0.18s ease;background:' + (a === i ? '#EDE7D8' : 'transparent')
+      })),
+      media0: layer(0), media1: layer(1), media2: layer(2), media3: layer(3),
+      activeCaption: data[a].caption,
+      activeMeta: data[a].metaLong,
+      showPhoto: () => this.setState({ view: 'photo' }),
+      showPlan: () => this.setState({ view: 'plan' }),
+      btnPhoto: btn('photo'),
+      btnPlan: btn('plan'),
+      proves: [
+        'Editorial art direction for commerce, beyond the studio shell',
+        'Catalogue and product-page content modelling',
+        'Responsive imagery and object galleries',
+        'Subtle transitions that respect reduced motion'
+      ],
+      hood: [
+        'Scoped tokens: [data-study="northline"] overrides semantic variables',
+        'Prerendered routes; the store stays browsable with JS disabled',
+        '≤ 90KB compressed JavaScript for the whole study',
+        'Serif/sans pairing self-hosted as WOFF2'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
