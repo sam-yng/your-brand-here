@@ -1,42 +1,63 @@
-# sv
+# Your Brand Here
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Independent web studio and self-directed design portfolio by Sam Young. Built as a content-first SvelteKit application with prerendered marketing routes and a server-rendered inquiry route.
 
-## Creating a project
+> **Status:** non-launchable development foundation. The production shell, complete content, inquiry pipeline, sitemap/social metadata, and study art direction remain intentionally pending the design handoff and implementation milestones.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Stack
 
-```sh
-# create a new project
-npx sv create my-app
-```
+- Svelte 5 and SvelteKit 2
+- strict TypeScript
+- Tailwind CSS v4 with canonical CSS custom properties
+- Bun
+- Biome 2.5.3
+- Playwright and axe-core
+- h-alter Standard harness
+- Vercel adapter
 
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-bun x sv@0.16.3 create --template minimal --types ts --add tailwindcss="plugins:none" playwright sveltekit-adapter="adapter:vercel" --install bun your-brand-here
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Setup
 
 ```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+bun install
+bunx playwright install chromium
+cp .env.example .env
+bun run dev
 ```
 
-## Building
+On PowerShell, use `Copy-Item .env.example .env` instead of `cp` if needed.
 
-To create a production version of your app:
+## Commands
 
 ```sh
-npm run build
+bun run dev              # local development
+bun run format           # write Biome formatting
+bun run lint             # Biome lint gate
+bun run typecheck        # Svelte and TypeScript semantics
+bun run test             # Bun unit tests
+bun run test:e2e         # Playwright desktop/mobile and axe smoke tests
+bun run build            # production build
+bun run check            # complete local/CI quality gate
 ```
 
-You can preview the production build with `npm run preview`.
+## Architecture
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- `src/routes/(marketing)/` is prerendered.
+- `src/routes/start/` remains server-rendered for the future inquiry action.
+- Root navigation uses browser document loads through `data-sveltekit-reload`.
+- Cross-document View Transitions are progressive enhancement only.
+- `src/app.css` owns global tokens, Tailwind mappings, accessibility defaults, and motion fallbacks.
+- Each study will override documented semantic variables inside its own route namespace.
+- Windows local builds skip the Vercel adaptation step because its route symlinks require Developer Mode. CI and Vercel still execute `adapter-vercel`; compilation, prerendering, preview, and tests remain active locally.
+
+Read [DESIGN.md](./DESIGN.md) before visual work and [AGENTS.md](./AGENTS.md) before agent-assisted changes.
+
+## Harness
+
+h-alter owns the agent map, hooks, CI workflow, docs lifecycle, portable skills, and test-integrity guardrails. Preview updates before applying them:
+
+```sh
+bunx @samyng/h-alter install .
+bunx @samyng/h-alter install . --yes
+```
+
+The installer preserves human-authored files and stops on conflicts. Reconcile proposed gate changes with `bun run check`; do not create a second quality gate.

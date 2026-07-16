@@ -1,0 +1,4 @@
+version: 1
+skills:
+  - name: explain-diff-html
+    path: ../SKILL.md
