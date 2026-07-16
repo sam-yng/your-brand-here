@@ -4,7 +4,11 @@ Status: implementation acceptance criteria derived from Claude Design v3.
 
 Exact copy and visual values live in the matching
 [`.dc.html` source](../references/claude-design-handoff/source/). These criteria define
-the required page shape without treating prototype code as production code.
+the required page shape without treating prototype code as production code. The
+matching source is the latest visual representation and remains required even when a
+criterion below summarizes rather than repeats its detail. Route completion requires
+all material source elements and states to be implemented or an intentional deviation
+to be recorded, approved, and verified.
 
 ## Route map
 
@@ -92,7 +96,9 @@ Reference:
 - Hero contains platform chips, coming-2027 language, key-art placeholder, and wishlist
   control.
 - Wishlist only reaches confirmed green state after the applicable production success
-  boundary; prototype optimism is not an implementation contract.
+  boundary; prototype optimism is not an implementation contract. With no real
+  provider in v1, preserve the control's visual character as a clearly labelled
+  fictional demonstrator that submits nothing and cannot enter confirmed green state.
 - Breakfast, Lunch, and Dinner controls retheme one stable panel. All shift content is
   present without JavaScript.
 - Three feature cards and dark build-note band retain the anti-dark-pattern message.

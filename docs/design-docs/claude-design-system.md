@@ -5,18 +5,27 @@ Status: canonical visual direction, accepted 16 July 2026.
 ## Authority and use
 
 This document distils the accepted Claude Design v3 handoff into an implementation
-contract. Use sources in this order:
+contract. Authority depends on the question:
 
-1. Root [`DESIGN.md`](../../DESIGN.md) for product truth, accessibility, architecture,
-   performance, and non-goals.
-2. This document and the sibling route and interaction contracts for accepted visual
-   and behavioral decisions.
-3. The matching high-fidelity
-   [`.dc.html` source](../references/claude-design-handoff/source/) for exact values or
-   composition omitted by derived docs.
-4. The handoff [`README.md`](../references/claude-design-handoff/source/README.md) for
-   Claude Design's complete summary.
-5. The original strategy handoff for background only.
+1. For visual representation, composition, hierarchy, art direction, supplied copy,
+   and interaction character, the matching high-fidelity
+   [`.dc.html` source](../references/claude-design-handoff/source/) plus shared
+   `StudioHeader.dc.html` and `StudioFooter.dc.html` references are canonical. They are
+   the latest visual iteration and the visual bible.
+2. Root [`DESIGN.md`](../../DESIGN.md) remains canonical for product truth, content
+   honesty, accessibility, architecture, performance, and non-goals. These boundaries
+   cannot be weakened to reproduce prototype behavior.
+3. This document and the sibling route and interaction contracts translate the handoff
+   into durable implementation and acceptance constraints. Their summaries do not
+   authorize omitting detail present in the matching visual source.
+4. The handoff [`README.md`](../references/claude-design-handoff/source/README.md)
+   provides the complete cross-page summary.
+5. The original strategy handoff is background only.
+
+Where responsive behavior is not pictured, preserve the handoff's hierarchy and
+character while applying the responsive, accessibility, and progressive-enhancement
+contracts. Record any intentional visual deviation, its reason, owner approval, and
+verification evidence before route completion.
 
 The v3 references are final at 1440px. Recreate them responsively; do not copy their
 prototype runtime or templating. Copy is final unless marked as placeholder.
