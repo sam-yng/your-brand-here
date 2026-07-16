@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #0E0E0D; color: #F4F3EF; }
+a { color: #8F83FF; }
+a:hover { color: #D97757; }
+::selection { background: #5B4BF3; color: #FFFEFA; }
+@keyframes ybhDriftA { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(120px,60px) scale(1.15); } 66% { transform: translate(-60px,110px) scale(0.92); } 100% { transform: translate(0,0) scale(1); } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<main data-screen-label="Privacy" style="background: #0E0E0D">
+  <section style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; top: -160px; right: -100px; width: 540px; height: 540px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.4), transparent 65%); filter: blur(90px); animation: ybhDriftA 30s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 4vw, 64px) 72px; display: flex; flex-direction: column; gap: 20px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+      <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,243,239,0.55)">Privacy</span>
+      <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(44px, 4.4vw, 64px); line-height: 1.06; letter-spacing: -0.022em; max-width: 22ch">Short, because there isn't much to <em style="font-style: italic; color: #D97757">disclose.</em></h1>
+      <span style="font-family: 'Onest', sans-serif; font-size: 13px; font-weight: 400; color: rgba(244,243,239,0.5)">Last updated July 2026</span>
+    </div>
+  </section>
+
+  <section style="background: #F4F3EF; color: #171716">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 88px clamp(20px, 4vw, 64px) 112px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px">
+      <div style="background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 20px; padding: 38px 36px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 500; font-size: 25px; letter-spacing: -0.01em">Your inquiry</h2>
+        <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7">What you submit through the project form is validated, checked by Cloudflare Turnstile to filter automated spam, and emailed to Sam via Resend from a verified domain. It is used to reply to you and for nothing else. Delivery metadata is logged; the body of your inquiry is not.</p>
+      </div>
+      <div style="background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 20px; padding: 38px 36px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 500; font-size: 25px; letter-spacing: -0.01em">Analytics</h2>
+        <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7">This site uses privacy-light analytics: aggregate page counts, no cookies, no cross-site tracking, no advertising identifiers, no sale of data to anyone. If that ever changes, this page changes first.</p>
+      </div>
+      <div style="background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 20px; padding: 38px 36px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 500; font-size: 25px; letter-spacing: -0.01em">Removal</h2>
+        <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7">Want your inquiry deleted? Email hello@yourbrandhere.studio and it is removed from the inbox and any notes within seven days.</p>
+      </div>
+      <div style="background: #DDE7E3; border-radius: 20px; padding: 38px 36px; display: flex; flex-direction: column; gap: 12px">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 500; font-size: 25px; letter-spacing: -0.01em">The studies</h2>
+        <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 16px; line-height: 1.7">The brand studies are self-directed fiction. Northline Atelier, Sunday Service, and Common Thread are not real businesses, and no real customer data exists behind them.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+</body>
+</html>

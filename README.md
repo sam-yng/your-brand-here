@@ -2,7 +2,9 @@
 
 Independent web studio and self-directed design portfolio by Sam Young. Built as a content-first SvelteKit application with prerendered marketing routes and a server-rendered inquiry route.
 
-> **Status:** non-launchable development foundation. The production shell, complete content, inquiry pipeline, sitemap/social metadata, and study art direction remain intentionally pending the design handoff and implementation milestones.
+> **Status:** non-launchable development foundation. Claude Design v3 is accepted and
+> preserved under `docs`; production shell implementation, complete content, inquiry
+> pipeline, sitemap/social metadata, and launch hardening remain pending.
 
 ## Stack
 
@@ -49,7 +51,9 @@ bun run check            # complete local/CI quality gate
 - Each study will override documented semantic variables inside its own route namespace.
 - Windows local builds skip the Vercel adaptation step because its route symlinks require Developer Mode. CI and Vercel still execute `adapter-vercel`; compilation, prerendering, preview, and tests remain active locally.
 
-Read [DESIGN.md](./DESIGN.md) before visual work and [AGENTS.md](./AGENTS.md) before agent-assisted changes.
+Read [DESIGN.md](./DESIGN.md) and the accepted
+[Claude Design system](./docs/design-docs/claude-design-system.md) before visual work;
+read [AGENTS.md](./AGENTS.md) before agent-assisted changes.
 
 ## Harness
 

@@ -1,6 +1,11 @@
 # Your Brand Here design contract
 
-Status: foundation contract. Refine visual details against the forthcoming Claude design handoff without weakening these product, accessibility, or architecture boundaries.
+Status: accepted contract. Claude Design v3 was accepted on 16 July 2026 and is
+distilled into the [design-system](./docs/design-docs/claude-design-system.md),
+[route](./docs/design-docs/route-specifications.md), and
+[interaction](./docs/design-docs/interaction-contracts.md) contracts. Use the
+[preserved handoff](./docs/references/claude-design-handoff/) for exact visual detail
+without weakening these product, accessibility, or architecture boundaries.
 
 ## 1. Product and audience
 
@@ -28,14 +33,20 @@ Do not:
 
 | Token | Value | Role |
 | --- | --- | --- |
-| `--studio-canvas` | `#F4F3EF` | primary page field |
-| `--studio-ink` | `#171716` | primary copy |
+| `--studio-void` | `#0E0E0D` | page and dark-band background |
+| `--studio-canvas` | `#F4F3EF` | light bands and text on dark |
+| `--studio-ink` | `#171716` | primary copy and dark controls on light |
 | `--studio-muted` | `#6B6964` | secondary copy |
-| `--studio-line` | `#D7D4CC` | rules and registration lines |
+| `--studio-line` | `#D7D4CC` | light-band hairlines |
 | `--studio-violet` | `#5B4BF3` | primary action and focus identity |
-| `--studio-coral` | `#FF654F` | sparing signal accent |
+| `--studio-violet-light` | `#8F83FF` | dark-band accent |
+| `--studio-terracotta` | `#D97757` | warm signal and CTA hover |
+| `--studio-ochre` | `#C7A15A` | muted triad accent |
+| `--studio-slate` | `#56708F` | muted triad accent |
+| `--studio-clay` | `#A8524A` | muted triad accent |
 | `--studio-mist` | `#DDE7E3` | quiet panels |
 | `--studio-white` | `#FFFEFA` | raised surfaces |
+| `--studio-success` | `#3E8E6E` | confirmed success only |
 
 All text/background pairs must pass WCAG 2.2 AA. Accent tokens are not presumed safe for small text.
 
@@ -43,7 +54,8 @@ All text/background pairs must pass WCAG 2.2 AA. Accent tokens are not presumed 
 
 - Display: Newsreader Variable, self-hosted WOFF2.
 - Body and UI: Onest Variable, self-hosted WOFF2.
-- Technical labels: Onest uppercase with measured tracking. No decorative mono family.
+- Technical labels, nav, chips, and buttons: Space Mono 400/700, uppercase with
+  measured tracking. This mono voice is part of the accepted shell identity.
 - Font files belong in `src/lib/assets/fonts/`; system fallbacks remain functional before or without font download.
 - Reading measure: `68ch` maximum.
 - Content maximum: `1440px`.
@@ -53,7 +65,11 @@ All text/background pairs must pass WCAG 2.2 AA. Accent tokens are not presumed 
 
 ## 5. Page and component grammar
 
-The stable shell contains a quiet header, footer, skip link, and main landmark. Pages use generous negative space, fine rules, occasional overlapping planes, and minimal radii. Images look deliberately placed rather than dropped into a uniform card library.
+The stable shell contains a sticky dark header, dark footer, skip link, and main
+landmark. Ordinary pages alternate full-bleed dark and light bands. Dark bands combine
+slow blurred aura fields with a fine, non-interactive grid. Pages use generous negative
+space, fine rules, 16–24px cards, pill controls, and deliberately placed media rather
+than a uniform card library.
 
 `BrandSlot` is the signature shell component. It cycles through three treatments of “Your Brand Here” on limited triggers, reserves its final dimensions, stops after one cycle, renders readable server HTML, and is static under reduced motion.
 
@@ -74,15 +90,19 @@ Study exceptions live in `src/lib/styles/studies/` and must be scoped under `[da
 
 | Moment | Treatment | Budget | Reduced motion |
 | --- | --- | ---: | --- |
-| document navigation | field fade/rise; stable chrome continuity | 220–360ms | immediate replacement |
+| document navigation | field fade/rise; stable chrome continuity | 350–500ms | immediate replacement |
 | mobile navigation | origin-aware opacity and clip/scale | 180–240ms | immediate state |
-| BrandSlot | word dissolve and baseline swap; one cycle | 500–700ms | static treatment |
+| BrandSlot | word dissolve and baseline swap; one cycle | 650ms swaps | final static treatment |
 | study index | media crossfade with entry blur only | 180–260ms | direct swap |
 | disclosure detail | grid-row expansion and chevron morph | 180–220ms | immediate state |
 | form correction | brief horizontal correction plus persistent text | 220ms | text only |
 | accepted form | status swap and drawn check | 300–450ms | immediate status |
 
 Use motion for orientation, causality, state, or character. Prefer transform, opacity, clip-path, and bounded filters. No global smooth scrolling, page opacity gates, or critical hover-only information.
+
+Use `cubic-bezier(0.19, 1, 0.22, 1)` as the accepted shell easing. Slow decorative
+aura drift and selected 12-second hue shifts are allowed only when reduced-motion rules
+collapse them. No marquees.
 
 ## 8. Image, illustration, and icon policy
 

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..700;1,6..72,200..700&amp;family=Onest:wght@300..800&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body { margin: 0; background: #0E0E0D; color: #F4F3EF; }
+a { color: #8F83FF; }
+a:hover { color: #D97757; }
+::selection { background: #5B4BF3; color: #FFFEFA; }
+@keyframes ybhDriftA { 0% { transform: translate(0,0) scale(1); } 33% { transform: translate(120px,60px) scale(1.15); } 66% { transform: translate(-60px,110px) scale(0.92); } 100% { transform: translate(0,0) scale(1); } }
+@keyframes ybhHueShift { 0%, 100% { color: #8F83FF; } 33% { color: #D97757; } 66% { color: #C7A15A; } }
+@keyframes ybhRise { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@media (prefers-reduced-motion: reduce) { * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; } }
+</style>
+</helmet>
+
+<dc-import name="StudioHeader" hint-size="100%,72px"></dc-import>
+
+<main style="background: #0E0E0D">
+
+  <section data-screen-label="About — Hero" style="position: relative; overflow: hidden; border-bottom: 1px solid rgba(244,243,239,0.12)">
+    <div style="position: absolute; top: -120px; right: -160px; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(217,119,87,0.38), transparent 65%); filter: blur(90px); animation: ybhDriftA 28s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 100px clamp(20px, 4vw, 64px) 88px; display: grid; grid-template-columns: 8fr 4fr; gap: clamp(40px, 5vw, 88px)">
+      <div style="display: flex; flex-direction: column; gap: 26px; animation: ybhRise 0.9s cubic-bezier(0.19,1,0.22,1) both">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(244,243,239,0.55)">About</span>
+        <h1 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(44px, 4.4vw, 66px); line-height: 1.08; letter-spacing: -0.022em; text-wrap: balance">I'm Sam Young, a software engineer who cares how things read, move, and feel — <em style="font-style: italic; animation: ybhHueShift 12s ease-in-out infinite">not only whether they run.</em></h1>
+        <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 18px; line-height: 1.68; color: rgba(244,243,239,0.8); max-width: 58ch">I work where design decisions become production code, which means the idea survives the handoff — because there is no handoff. One person shapes the story, sets the direction, and ships the build.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(244,243,239,0.25); align-self: start; animation: ybhRise 1s cubic-bezier(0.19,1,0.22,1) 0.12s both">
+        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(244,243,239,0.14)"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,243,239,0.6)">Base</span><span style="font-family: 'Onest', sans-serif; font-size: 14.5px; font-weight: 300">Sydney + remote</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(244,243,239,0.14)"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,243,239,0.6)">Role</span><span style="font-family: 'Onest', sans-serif; font-size: 14.5px; font-weight: 300">Design + engineering, one person</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(244,243,239,0.14)"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,243,239,0.6)">Stack</span><span style="font-family: 'Onest', sans-serif; font-size: 14.5px; font-weight: 300">Svelte · TypeScript · Tailwind</span></div>
+        <div style="display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(244,243,239,0.14)"><span style="font-family: 'Onest', sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(244,243,239,0.6)">Floor</span><span style="font-family: 'Onest', sans-serif; font-size: 14.5px; font-weight: 300">WCAG 2.2 AA, tested in CI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="About — Evidence" style="background: #F4F3EF; color: #171716">
+    <div style="max-width: 1440px; margin: 0 auto; padding: 96px clamp(20px, 4vw, 64px) 104px">
+      <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 44px">
+        <span style="font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #6B6964; white-space: nowrap">Proof I build what I design</span>
+        <span style="flex: 1; height: 1px; background: #D7D4CC"></span>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px">
+        <sc-for list="{{ evidence }}" as="item" hint-placeholder-count="4">
+          <div style="background: #FFFEFA; border: 1px solid #D7D4CC; border-radius: 20px; padding: 38px 36px; display: flex; flex-direction: column; gap: 14px; transition: transform 0.4s cubic-bezier(0.19,1,0.22,1), box-shadow 0.4s cubic-bezier(0.19,1,0.22,1), border-color 0.4s cubic-bezier(0.19,1,0.22,1)" style-hover="transform: translateY(-6px); box-shadow: 0 24px 56px rgba(23,23,22,0.12); border-color: #5B4BF3">
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 16px">
+              <span style="font-family: 'Newsreader', serif; font-weight: 500; font-size: 26px; letter-spacing: -0.01em">{{ item.name }}</span>
+              <span style="font-family: 'Space Mono', monospace; font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #FFFEFA; background: {{ item.chipBg }}; padding: 7px 14px; border-radius: 999px; white-space: nowrap">{{ item.kind }}</span>
+            </div>
+            <p style="margin: 0; font-family: 'Onest', sans-serif; font-weight: 300; font-size: 15.5px; line-height: 1.68">{{ item.body }}</p>
+            <span style="font-family: 'Onest', sans-serif; font-size: 13px; font-weight: 400; color: #6B6964; border-left: 2px solid #5B4BF3; padding-left: 12px; margin-top: 4px">{{ item.decision }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="margin-top: 72px; background: #DDE7E3; border-radius: 20px; padding: 56px clamp(32px, 4vw, 72px); display: grid; grid-template-columns: 5fr 7fr; gap: clamp(40px, 5vw, 88px)">
+        <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 400; font-size: 36px; line-height: 1.16; letter-spacing: -0.015em">What I hold every build to, <em style="font-style: italic; color: #5B4BF3">including this one.</em></h2>
+        <div style="display: flex; flex-direction: column">
+          <sc-for list="{{ standards }}" as="s" hint-placeholder-count="5">
+            <span style="display: flex; align-items: baseline; gap: 14px; padding: 13px 0; border-bottom: 1px solid rgba(23,23,22,0.16); font-family: 'Onest', sans-serif; font-size: 16px; font-weight: 400; line-height: 1.55"><span style="width: 7px; height: 7px; background: #5B4BF3; display: inline-block; flex: none; transform: translateY(-2px)"></span>{{ s }}</span>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="About — CTA" style="background: #0E0E0D; color: #F4F3EF; position: relative; overflow: hidden">
+    <div style="position: absolute; bottom: -200px; right: -120px; width: 620px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(91,75,243,0.42), transparent 68%); filter: blur(90px); animation: ybhDriftA 30s ease-in-out infinite; pointer-events: none"></div><div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(244,243,239,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(244,243,239,0.05) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none" aria-hidden="true"></div>
+    <div style="position: relative; max-width: 1440px; margin: 0 auto; padding: 104px clamp(20px, 4vw, 64px); display: flex; justify-content: space-between; align-items: center; gap: 48px">
+      <h2 style="margin: 0; font-family: 'Newsreader', serif; font-weight: 300; font-size: clamp(38px, 3.8vw, 56px); line-height: 1.06; letter-spacing: -0.02em; max-width: 20ch">The best brief starts as a <em style="font-style: italic; color: #D97757">conversation,</em> not a document.</h2>
+      <a href="Start.dc.html" style="font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; color: #FFFEFA; background: #5B4BF3; padding: 20px 38px; border-radius: 999px; white-space: nowrap; transition: background 0.4s cubic-bezier(0.19,1,0.22,1), transform 0.4s cubic-bezier(0.19,1,0.22,1), box-shadow 0.4s cubic-bezier(0.19,1,0.22,1)" style-hover="background: #D97757; color: #171716; transform: translateY(-3px); box-shadow: 0 16px 40px rgba(217,119,87,0.35)">Work with Sam</a>
+    </div>
+  </section>
+</main>
+
+<dc-import name="StudioFooter" hint-size="100%,560px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      evidence: [
+        {
+          name: 'Lumen', kind: 'Systems engineering', chipBg: '#5B4BF3',
+          body: 'A TypeScript monorepo with local transcription, hybrid retrieval, background work, and end-to-end testing — the deepest proof that I can ship complex systems that keep working.',
+          decision: 'Hard call: local-first transcription over a simpler API dependency, to keep user audio private.'
+        },
+        {
+          name: 'Rankwire', kind: 'Product system', chipBg: '#D97757',
+          body: 'An editorial language developed into a full product: authentication, feed ingestion, per-user ranking, tests, and repository guardrails that keep contributions honest.',
+          decision: 'Hard call: per-user ranking on ingestion rather than at read time, trading storage for speed.'
+        },
+        {
+          name: 'h-alter', kind: 'Tooling', chipBg: '#171716',
+          body: 'A published harness that sets up the quality gate — formatting, linting, type checks, tests — so every project starts with the same floor instead of renegotiating it.',
+          decision: 'Hard call: one opinionated gate over configurable options. Fewer choices, more shipped.'
+        },
+        {
+          name: 'This studio', kind: 'Working proof', chipBg: '#3E8E6E',
+          body: 'Your Brand Here is itself the specimen: a multi-page SvelteKit site with three fully art-directed brand studies, an accessible inquiry pipeline, and budgets checked in CI.',
+          decision: 'Hard call: self-directed studies labelled honestly, instead of implying client work that does not exist.'
+        }
+      ],
+      standards: [
+        'Server-rendered pages that work before — and without — JavaScript',
+        'WCAG 2.2 AA as a design input, not a cleanup task',
+        'Performance budgets enforced in CI, not promised in proposals',
+        'Reduced-motion journeys that stay complete and understandable',
+        'Documentation precise enough that the next developer needs no archaeology'
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

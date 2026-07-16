@@ -6,4 +6,7 @@ Store verified source notes and tool-schema findings here. Human-authored produc
 Current source material:
 
 - `your-brand-here-code-handoff.md`, prepared 15 July 2026. The working copy was supplied outside the repository and has been distilled into the root design contract, route shape, scripts, and acceptance boundaries.
-- Claude design handoff: pending.
+- [`claude-design-handoff/`](./claude-design-handoff/), accepted 16 July 2026. The
+  original v3 prototypes, handoff summary, strategy source, and prototype runtime are
+  preserved there and distilled into the root design contract plus
+  [`docs/design-docs/`](../design-docs/).
