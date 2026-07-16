@@ -19,7 +19,12 @@ Independent web studio and self-directed design portfolio by Sam Young. Built as
 
 ## Setup
 
+Node 24 is required locally, in CI, and on Vercel. Both `.nvmrc` and
+`.node-version` pin that runtime; `package.json#engines` supplies Vercel's build
+selection. Builds stop before `adapter-vercel` initializes under another Node major.
+
 ```sh
+nvm use # or use your version manager's .node-version support
 bun install
 bunx playwright install chromium
 cp .env.example .env

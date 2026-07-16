@@ -133,7 +133,7 @@ Create a reusable `<BrandSlot>` component: a typographic field that cycles throu
 | `/process/` | Reduce uncertainty from discovery through launch | Start a project |
 | `/about/` | Explain Sam's point of view and production credibility | Work with Sam |
 | `/start/` | Qualify and submit an inquiry | Send project brief |
-| `/thanks/` | Confirm a genuinely accepted submission | Return home |
+| `/start/thanks/` | Confirm a genuinely accepted submission | Return home |
 | `/privacy/` | Explain inquiry and analytics data handling | — |
 | `/404` | Helpful recovery with study links | Explore the studies |
 
@@ -439,12 +439,12 @@ Use SvelteKit's normal SSR mode and set `prerender = true` on the `(marketing)` 
 │     │  ├─ studies/+page.svelte
 │     │  ├─ studies/northline-atelier/+page.svelte
 │     │  ├─ studies/sunday-service/+page.svelte
-│     │  ├─ studies/common-thread/+page.svelte
-│     │  └─ thanks/+page.svelte
+│     │  └─ studies/common-thread/+page.svelte
 │     └─ start/
 │        ├─ +page.svelte
 │        ├─ +page.server.ts
-│        └─ +page.ts
+│        ├─ +page.ts
+│        └─ thanks/+page.svelte
 └─ tests/
    ├─ e2e/
    ├─ unit/
@@ -494,7 +494,7 @@ The form is part of the product, not a footer afterthought.
 3. Return field errors with SvelteKit's `fail()` so submitted non-sensitive values remain available and errors are associated with their controls.
 4. Verify Cloudflare Turnstile through Siteverify before sending. Cloudflare requires server-side validation; client-only widgets are not protection: [Turnstile validation](https://developers.cloudflare.com/turnstile/get-started/server-side-validation/).
 5. Send the qualified inquiry through Resend from a verified domain. Use both plain-text and HTML bodies, escape all submitted values, and set an idempotency key: [Resend send-email API](https://resend.com/docs/api-reference/emails/send-email).
-6. Redirect to `/thanks` only after Resend accepts the request. On failure, preserve the person's entered data and provide a direct email alternative.
+6. Redirect to `/start/thanks` only after Resend accepts the request. On failure, preserve the person's entered data and provide a direct email alternative.
 7. Add SvelteKit's `use:enhance` only after the no-JavaScript path works. Enhancement may provide pending and inline-success states, but it must preserve the same server action and truthful result.
 8. Rate-limit the action using a simple managed store or Vercel firewall rule before launch; never rely on the honeypot alone.
 9. Log delivery metadata, not the full inquiry body.

@@ -19,8 +19,8 @@ in the queued plans.
   local/CI quality gate are installed.
 - Production shell, self-hosted fonts, final route copy, study systems, inquiry
   action, sitemap, structured data, social assets, and launch evidence are absent.
-- Accepted route docs specify `/start/thanks/`; current source and tests implement
-  `/thanks/`. Resolve before form, canonical, sitemap, or redirect work.
+- Accepted route docs and current source/tests use `/start/thanks/`; legacy
+  `/thanks/` redirects permanently.
 - Current global CSS still contains provisional coral, easing, and incomplete token
   mappings. Accepted v3 tokens must replace them before route styling spreads.
 
@@ -63,7 +63,7 @@ holding a long-lived integration branch.
 
 ## Ordered plans
 
-1. [`01-foundation-convergence`](../queued/01-foundation-convergence.md)
+1. [`01-foundation-convergence`](../completed/01-foundation-convergence.md)
    corrects shared primitives and freezes route/content contracts.
 2. [`02-commercial-shell`](../queued/02-commercial-shell.md) completes
    Home, Studies index, Services, Process, About, Privacy, and shared conversion
@@ -117,13 +117,13 @@ complete. Move superseded plans to `archive/`, not `completed/`.
 
 | Decision | Needed by | Recommendation | Status |
 | --- | --- | --- | --- |
-| Confirmation URL | foundation | Canonical `/start/thanks/`; redirect legacy `/thanks/` only if needed | open |
+| Confirmation URL | foundation | Canonical `/start/thanks/`; permanent legacy `/thanks/` redirect | decided 2026-07-16 |
 | Public name and domain | launch metadata | Keep “Your Brand Here”; choose primary domain before canonical work is finalized | open |
-| Location claim | commercial copy | Confirm “Sydney + remote” | open |
+| Location claim | commercial copy | Use “Sydney + remote” | decided 2026-07-17 |
 | Minimum engagement | Services and form | Select truthful lowest AUD band; avoid fixed package pricing | open |
 | Copy service boundary | Services | Describe as collaborative shaping unless separate copywriting is genuinely sold | open |
 | Availability signal | Home | Default hidden until an honest update owner exists | open |
-| Public contact identity | footer/form | Pick mailbox, From address, and sending subdomain | open |
+| Public contact identity | footer/form | Use `young142001@gmail.com` publicly for now; transactional From address and sending subdomain remain open | partial 2026-07-17 |
 | Analytics | Privacy and CSP | Prefer privacy-light analytics or explicitly choose none | open |
 | Portrait | About | Keep optional; do not block v1 | open |
 
@@ -138,16 +138,16 @@ owner, target environment, and an evidence pointer without committing secrets.
 
 | ID | Step | Earliest point | Blocks | Evidence | Status |
 | --- | --- | --- | --- | --- | --- |
-| EXT-00 | Standardize local, CI, and Vercel build runtime on supported Node 24; current machine default Node 26 is rejected by adapter-vercel | Wave 1 | reproducible build gate | runtime versions from local/CI/deployment | pending |
+| EXT-00 | Standardize local, CI, and Vercel build runtime on supported Node 24; current machine default Node 26 is rejected by adapter-vercel | After all queued plans | production reproducibility | repository/CI pins now; hosted build log after project creation | repository complete; hosted evidence deferred by owner 2026-07-17 |
 | EXT-01 | Choose public domain and confirm registrant ownership | Wave 0 | canonical production verification | registrar record/reference | pending |
-| EXT-02 | Create Vercel project; connect repo; record preview and production environments | Wave 1 | production deployment | project URL and environment names | pending |
+| EXT-02 | Create Vercel project; connect repo; record preview and production environments | After all queued plans | production deployment | project URL and environment names | deferred by owner 2026-07-17 |
 | EXT-03 | Configure DNS for production and `www` policy | Wave 5 | production launch | DNS check and resolved URLs | pending |
 | EXT-04 | Choose public mailbox and verified Resend sending subdomain | Wave 0 | production inquiry success | verified domain status, no API keys | pending |
 | EXT-05 | Create Resend API key separately for preview/test and production; set Vercel secrets | Wave 3B | live delivery tests | secret names and deployment IDs | pending |
 | EXT-06 | Create Cloudflare Turnstile widgets for local/test and production hostnames; set secrets | Wave 3B | anti-spam production gate | widget names/site-key labels, no secrets | pending |
 | EXT-07 | Choose and configure rate-limit boundary (managed store or Vercel firewall) | Wave 3B | public form launch | rule/store name and test evidence | pending |
 | EXT-08 | Choose analytics or none; configure property and update privacy truth | Wave 2 | final privacy/CSP | property label or recorded “none” decision | pending |
-| EXT-09 | Obtain production-usable WOFF2 font files and verify license/provenance for all nine families | Wave 1 | typography fidelity | source/license note and file hashes | pending |
+| EXT-09 | Obtain production-usable WOFF2 font files and verify license/provenance for all nine families | Wave 1 | typography fidelity | `src/lib/assets/fonts/README.md`, family licenses, SHA-256 hashes | complete 2026-07-16 |
 | EXT-10 | Confirm final service, budget, availability, contact, location, and fictional-study copy | Wave 0 | content freeze | dated owner approval note | pending |
 | EXT-11 | Ask two non-developers to explain offer and CTA after a 20-second Home scan | Wave 5 | launch content sign-off | anonymized findings and resulting changes | pending |
 | EXT-12 | Run real-device checks on current iOS Safari and Android Chrome | Wave 5 | launch QA | device/OS/browser matrix and findings | pending |
@@ -187,8 +187,11 @@ responsive hierarchy, and absence of shell/study style leakage.
 - 2026-07-16: logged external systems and human validation work as EXT-00–EXT-15.
 - 2026-07-16: full gate passed with installed Node 24; Node 26 incompatibility logged
   as EXT-00.
-- Next: resolve confirmation URL, confirm Wave 0 owner decisions, then activate plan
+- 2026-07-16: froze `/start/thanks/` as canonical confirmation URL and activated plan
   01.
+- 2026-07-17: completed plan 01; owner deferred Vercel project creation and hosted
+  Node 24 evidence until every queued plan completes.
+- Next: activate plan 02 while remaining Wave 0 content decisions progress.
 
 ## Completion
 
