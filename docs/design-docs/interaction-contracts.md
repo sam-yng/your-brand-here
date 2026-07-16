@@ -11,7 +11,7 @@ design contract.
 | Northline collection | active piece `0–3` | hover and focus parity; linked list remains complete without JS |
 | Northline comparison | `photo` or `plan` | both states in HTML; stable box; labelled keyboard controls |
 | Sunday shifts | breakfast, lunch, dinner | all content server-rendered; control changes theme and selected state |
-| Sunday wishlist | wished/unwished | no false success; state reflects production result |
+| Sunday wishlist | v1 `idle`/`explained`; future `pending`/`confirmed` | fictional demonstrator submits nothing; confirmed state requires a real production result |
 | Common Thread filters | all, knits, outerwear, accessories | URL-backed links, keyboard operable, no-JS journey |
 | Common Thread drawer | open/closed | `aria-expanded`, labelled region, predictable close and focus behavior |
 | Inquiry form | values, tried, sending, errors | server is authority; preserve input and announce linked errors |
@@ -107,7 +107,8 @@ define and test that boundary explicitly before launch.
 
 Before calling a route complete, collect evidence appropriate to its risk:
 
-- desktop and mobile visual comparison against matching `.dc.html` reference;
+- desktop and mobile visual comparison against matching `.dc.html` reference, with
+  every material mismatch resolved or intentionally recorded and approved;
 - keyboard journey through all route-owned controls;
 - reduced-motion verification;
 - direct-load and JavaScript-disabled content check;

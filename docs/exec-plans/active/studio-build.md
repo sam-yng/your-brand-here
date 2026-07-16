@@ -24,6 +24,24 @@ in the queued plans.
 - Current global CSS still contains provisional coral, easing, and incomplete token
   mappings. Accepted v3 tokens must replace them before route styling spreads.
 
+## Design authority and change control
+
+- Matching handoff `.dc.html` plus `StudioHeader.dc.html` and `StudioFooter.dc.html`
+  are the latest visual iteration and canonical visual target. Plan summaries never
+  reduce their required detail.
+- `DESIGN.md` and derived design docs remain hard boundaries for product truth,
+  content honesty, WCAG 2.2 AA, progressive enhancement, architecture, performance,
+  and non-goals. Prototype behavior cannot override these safeguards.
+- Implement responsive behavior by preserving handoff hierarchy and character across
+  12-, 6-, and 4-column layouts; 1440px is the fidelity reference, not a fixed canvas.
+- Before a route exits, compare it against its complete `.dc.html` and route contract.
+  Resolve every material mismatch. Any intentional deviation needs a recorded reason,
+  owner approval, and evidence link in the affected plan; an unreviewed comparison is
+  not acceptance.
+- New visual interpretation starts only when the user supersedes the accepted handoff.
+  Until then, do not substitute generic components, remove supplied motifs, or change
+  copy/art direction for convenience.
+
 ## Execution map
 
 ```text
@@ -58,6 +76,28 @@ holding a long-lived integration branch.
    Service and Common Thread after Northline validates study boundaries.
 6. [`05-launch-hardening`](../queued/05-launch-hardening.md) integrates,
    measures, deploys, and verifies production.
+
+## Design-spec ownership
+
+| Contract surface | Implementation owner | Required source |
+| --- | --- | --- |
+| Canonical tokens, shell typography, grid, band grammar, motion primitives | 01 | `DESIGN.md`, `claude-design-system.md`, shared handoff components |
+| Shared header, mobile navigation, footer, landmarks, document navigation | 01 | `StudioHeader.dc.html`, `StudioFooter.dc.html`, interaction contract |
+| Home and BrandSlot | 02 | `Home.dc.html`, Home route specification |
+| Services | 02 | `Services.dc.html`, Services route specification |
+| Studies index | 02 | `Studies.dc.html`, Studies route specification |
+| Process | 02 | `Process.dc.html`, Process route specification |
+| About | 02 | `About.dc.html`, About route specification |
+| Start composition and field content | 02 | `Start.dc.html`, Start route specification |
+| Start behavior, server acceptance, and Thanks | 03B | `Start.dc.html`, `Thanks.dc.html`, form interaction contract |
+| Northline Atelier | 03A | `Northline Atelier.dc.html`, Northline route specification |
+| Sunday Service | 04 | `Sunday Service.dc.html`, Sunday route specification |
+| Common Thread | 04 | `Common Thread.dc.html`, Common Thread route specification |
+| Privacy | 02, finalized by 05 | `Privacy.dc.html`, actual production data flow |
+| Metadata, social assets, structured data, sitemap, production evidence | 05 | route contract, implementation evidence contract |
+
+Plan owners must account for every element and state in their required sources, even
+when this table or a plan summary does not repeat it verbatim.
 
 ## Naming convention
 
@@ -122,9 +162,11 @@ not inquiry bodies.
 ## Integration gates
 
 Every plan exit requires its scoped tests plus `bun run check`. Route completion also
-requires desktop/mobile comparison with its `.dc.html`, keyboard traversal,
-reduced-motion behavior, direct-load HTML, JavaScript-disabled usefulness, and an axe
-scan. Final integration adds:
+requires a complete acceptance checklist from its `.dc.html` and route specification,
+resolved desktop/mobile comparisons, keyboard traversal, reduced-motion behavior,
+direct-load HTML, JavaScript-disabled usefulness, an axe scan, and manual semantics
+review. Comparisons must have no unexplained material mismatch. Final integration
+adds:
 
 - truthful success/failure form journeys, including duplicate and expired challenge;
 - 320px and 200% zoom review;
@@ -133,6 +175,10 @@ scan. Final integration adds:
 - compressed JavaScript measurement against 75KB shell and 90KB/study budgets;
 - LCP, CLS, and INP evidence against the accepted targets;
 - production smoke tests after DNS and secrets are live.
+
+Cross-cutting visual acceptance also verifies exact shell/study typography, supplied
+SVG motifs, placeholder captions, dark-band decoration, focus states, stable boxes,
+responsive hierarchy, and absence of shell/study style leakage.
 
 ## Progress log
 

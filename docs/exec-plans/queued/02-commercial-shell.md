@@ -17,18 +17,32 @@ conversion bands, and the non-submitting Start form presentation.
 ## Scope and order
 
 1. Implement Home hierarchy, BrandSlot progressive enhancement, capability strip,
-   differentiated service/study previews, process preview, and CTA.
+   differentiated service/study previews, process preview, and CTA. Preserve the
+   aura/grid hero, two CTAs, microcopy, configurable availability pill, treatment
+   counter, Studies CTA hover/focus replay trigger, reserved dimensions, rotating
+   circle-text SVG badge, three service-mark SVGs, three distinct study plates, sage
+   fit panel, and final dark band.
 2. Implement Studies index honesty hero, three alternating owned-system rows,
-   non-link Signal/Noise teaser, route metadata, responsive/no-JavaScript content,
-   and CTA. Detail links may target works in progress but must remain truthful.
+   owned palettes/type/media motifs/proof statements/direct links, dashed non-link
+   Signal/Noise teaser, route metadata, responsive/no-JavaScript content, and CTA.
+   Detail links may target works in progress but must remain truthful.
 3. Implement Services from joined-up offer through engagement shapes, fit/non-offer,
-   budget language, and final CTA.
-4. Implement Process with five sequential stages and useful collapsed reading order.
-5. Implement About evidence cards and standards without inflating project claims.
-6. Implement Privacy from actual collection plans; mark analytics copy conditional
-   until EXT-08 closes.
+   five-stage chain, three deliverable rows, Launch/Reposition/Extend cards, indicative
+   AUD budget language, and final CTA.
+4. Implement Process with dark promise hero, five sequential cards containing What
+   happens/You get/Your part, sage three-point handoff panel, final CTA, and useful
+   collapsed reading order.
+5. Implement About with Sam/one-person hero, Base/Role/Stack/WCAG spec rows, Lumen,
+   Rankwire, h-alter, and This studio evidence cards plus every “Hard call” note, sage
+   standards panel, and final CTA without inflating project claims.
+6. Implement Privacy with last-updated disclosure hero and four cards for inquiry
+   data, analytics, removal, and fictional studies. Derive claims from actual
+   collection plans; keep analytics conditional until EXT-08 closes.
 7. Implement Start form fields and accessible presentation against the shared inquiry
-   schema contract, but keep submission truth owned by plan 03B.
+   schema contract: dark hero; 7/4 light layout; white form card; required, optional,
+   AUD budget, timing, referral, consent, challenge, and submit fields from the
+   handoff; sticky next-steps aside; direct-email panel; no-JavaScript truth note.
+   Submission truth stays owned by plan 03B.
 8. Add final copy, metadata, route links, and responsive states. Preserve ordinary
    browser document navigation.
 
@@ -46,9 +60,12 @@ conversion bands, and the non-submitting Start form presentation.
 - Studies index visibly labels every study as self-directed, preserves three distinct
   art directions, and keeps Signal/Noise an unlinked in-progress teaser.
 - BrandSlot has reserved dimensions, readable server HTML, one cycle, and a static
-  reduced-motion result.
+  reduced-motion result; treatment count, replay trigger, and circle badge remain.
+- Circle badge and all three service marks match supplied SVG motifs; decorative
+  assets are hidden correctly and never replace text meaning.
 - All links, mobile navigation, and form controls pass keyboard/focus review.
-- Desktop/mobile visual comparisons recorded against matching prototypes.
+- Every route's desktop/mobile visual comparison is resolved against its matching
+  `.dc.html`; no unexplained material mismatch remains.
 - `bun run check` passes.
 
 ## Exit

@@ -19,6 +19,7 @@ accepted budgets, deploy, and collect enough evidence to call the site launchabl
    contact details, privacy disclosure, and confirmation URL.
 2. Finalize canonical URLs, per-route Open Graph/Twitter assets, ProfessionalService,
    Person, and CreativeWork JSON-LD, sitemap, robots, favicon, and error metadata.
+   Social assets inherit the matching handoff's shell or study art direction.
 3. Add production security headers/CSP compatible with fonts, Turnstile, analytics,
    and Resend server calls. Verify no client secrets or unnecessary origins ship.
 4. Integrate final rate limiting, analytics choice, form monitoring, and operational
@@ -28,7 +29,8 @@ accepted budgets, deploy, and collect enough evidence to call the site launchabl
 6. Measure compressed JavaScript and performance; remove avoidable hydration and
    resolve regressions without weakening tests or hiding measurement.
 7. Run full local/CI gate, deploy preview, complete content-reader and real-device
-   checks, then fix/retest findings.
+   checks, then fix/retest findings. Re-audit every route against the complete handoff
+   and derived contract; resolve or explicitly approve every material difference.
 8. Configure production domain/secrets, deploy, perform production smoke/form tests,
    and record operational ownership.
 

@@ -17,7 +17,9 @@ and interaction can depart from the shell without selector, token, or runtime le
 
 1. Add typed Northline content and route-owned `data-study="northline"` namespace.
 2. Implement hero, honesty label, palette, collection index, comparison panel, build
-   note, and CTA from the accepted reference.
+   note, and slate/ink CTA from the accepted reference. Preserve “Objects with a
+   spine,” four palette swatches, named products/prices, Source Serif 4/Archivo type,
+   CSS-drawn placeholder captions, and the oxblood build-note content.
 3. Build collection hover/focus preview with stable dimensions and a complete base
    list when JavaScript is disabled.
 4. Build photo/drawing controls with both states in HTML, labelled selected state,
@@ -34,7 +36,8 @@ and interaction can depart from the shell without selector, token, or runtime le
 
 ## Verification
 
-- Desktop/mobile visual comparison to `Northline Atelier.dc.html`.
+- Desktop/mobile visual comparison to `Northline Atelier.dc.html` is resolved with no
+  unexplained material mismatch.
 - Hover and focus parity for every collection item.
 - Both comparison states accessible without JavaScript and immediate under reduced
   motion.

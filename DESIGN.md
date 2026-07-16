@@ -3,9 +3,17 @@
 Status: accepted contract. Claude Design v3 was accepted on 16 July 2026 and is
 distilled into the [design-system](./docs/design-docs/claude-design-system.md),
 [route](./docs/design-docs/route-specifications.md), and
-[interaction](./docs/design-docs/interaction-contracts.md) contracts. Use the
-[preserved handoff](./docs/references/claude-design-handoff/) for exact visual detail
-without weakening these product, accessibility, or architecture boundaries.
+[interaction](./docs/design-docs/interaction-contracts.md) contracts.
+
+The matching preserved [Claude Design handoff](./docs/references/claude-design-handoff/)
+is the latest and canonical visual representation of the project. Treat each
+`.dc.html` page plus the shared header/footer references as the visual bible for
+composition, hierarchy, art direction, supplied copy, and interaction character.
+This contract remains authoritative for product truth, content honesty,
+accessibility, architecture, performance, and non-goals. Implementations may adapt
+the 1440px references responsively, but must not silently simplify, reinterpret, or
+replace their visual direction. Record any necessary deviation with reason and
+acceptance evidence before calling the affected route complete.
 
 ## 1. Product and audience
 
