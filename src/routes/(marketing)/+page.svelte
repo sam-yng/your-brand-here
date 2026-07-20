@@ -1,13 +1,11 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
+	import { routeMetadata } from '$lib/content/metadata';
 </script>
 
-<PageMeta
-	title="Home"
-	description="Your Brand Here is an independent web studio for distinctive, accessible websites."
-/>
+<PageMeta metadata={routeMetadata.home} />
 
-<main>
+<main class="foundation-page">
 	<p>Independent web studio · Sydney + remote</p>
 	<h1>Your work has a point of view. Your website should too.</h1>
 	<p>

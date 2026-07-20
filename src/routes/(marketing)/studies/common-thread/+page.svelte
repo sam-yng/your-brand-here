@@ -1,11 +1,21 @@
 <script lang="ts">
+	import HonestyStrip from '$lib/components/primitives/HonestyStrip.svelte';
+	import StudyBoundary from '$lib/components/primitives/StudyBoundary.svelte';
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
+	import { routeMetadata } from '$lib/content/metadata';
+	import { getStudy } from '$lib/content/studies';
+
+	const study = getStudy('common-thread');
 </script>
 
-<PageMeta title="Common Thread" description="A self-directed community arts collective brand study." />
+<PageMeta metadata={routeMetadata.commonThread} />
 
-<main data-study="common-thread">
-	<p>Self-directed concept. This is not commissioned client work.</p>
-	<h1>Common Thread</h1>
-	<p>Built to explore inclusive design, dense information, filtering, and print styles.</p>
+<main>
+	<StudyBoundary study="common-thread">
+		<HonestyStrip label={study.honestyLabel} />
+		<section class="foundation-page">
+			<h1>{study.title}</h1>
+			<p>Built to explore inclusive design, dense information, filtering, and print styles.</p>
+		</section>
+	</StudyBoundary>
 </main>

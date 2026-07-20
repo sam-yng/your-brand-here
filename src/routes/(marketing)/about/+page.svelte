@@ -1,10 +1,11 @@
 <script lang="ts">
 	import PageMeta from '$lib/components/seo/PageMeta.svelte';
+	import { routeMetadata } from '$lib/content/metadata';
 </script>
 
-<PageMeta title="About" description="Meet Sam Young, the designer and engineer behind Your Brand Here." />
+<PageMeta metadata={routeMetadata.about} />
 
-<main>
+<main class="foundation-page">
 	<h1>About</h1>
 	<p>One person carrying the idea from language and art direction into reliable production code.</p>
 </main>
