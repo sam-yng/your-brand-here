@@ -1,6 +1,6 @@
 # Commercial shell routes
 
-Status: queued after foundation convergence.
+Status: active from 20 July 2026.
 
 ## Objective
 
@@ -73,3 +73,27 @@ conversion bands, and the non-submitting Start form presentation.
 Service site and Studies index are content-complete and credible, with study detail
 work represented honestly and inquiry submission still explicitly non-false.
 Northline and server inquiry plans can proceed independently.
+
+## Progress log
+
+- 2026-07-20: activated after foundation convergence completed. Content-independent
+  Home implementation begins while EXT-08 and unresolved EXT-10 commercial claims
+  remain explicit content gates.
+- 2026-07-20: implemented Home, Studies, Services, Process, About, Privacy, and the
+  staged non-submitting Start presentation. Added the reserved progressive BrandSlot,
+  service marks, distinct study plates, shared conversion bands, typed commercial
+  content, route metadata, and honest no-JavaScript reading paths.
+- 2026-07-20: compared every commercial route with its matching handoff at desktop,
+  exercised responsive composition at 320px in both browser projects, and resolved
+  contrast, selector, copy, and overflow findings. Intentional deviations describe
+  analytics and form delivery as not live until their later owners provide them.
+- 2026-07-20: full `bun run check` passed: 12 unit tests, 50 desktop/mobile browser
+  tests, production build, test-integrity guard, and lifecycle check. The complete
+  generated client JavaScript graph is 71.8 KiB gzip, a conservative upper bound
+  below the 75 KiB shell route budget.
+- 2026-07-20: implementation completed with EXT-10 owner approval and the EXT-08
+  analytics/none decision still open. The published copy stays truthful while those
+  external content gates progress.
+- 2026-07-20: owner approved current service, budget, evidence, location, contact,
+  hidden-availability, and fictional-study claims, completing EXT-10. EXT-08 remains
+  the only external exit gate.
