@@ -142,6 +142,7 @@ test("representative direct loads remain useful without JavaScript", async ({
     routes[0],
     routes[1],
     routes[2],
+    routes[3],
     routes[6],
     routes[7],
     routes[8],
@@ -161,9 +162,11 @@ test("Home communicates offer, range, process, and next action", async ({ page }
   await expect(page.getByLabel("Studio capabilities").locator("span")).toHaveCount(5);
   await expect(page.locator(".service-preview")).toHaveCount(3);
   await expect(page.locator(".study-plate.card")).toHaveCount(3);
-  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(3);
+  await expect(page.getByText("Study available", { exact: true })).toHaveCount(1);
+  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(2);
+  await expect(page.getByRole("link", { name: /Open study/ })).toHaveCount(1);
   await expect(page.getByRole("link", { name: /View work in progress/ })).toHaveCount(
-    3,
+    2,
   );
   await expect(page.locator(".process-preview li")).toHaveCount(5);
   await expect(page.locator(".availability-pill")).toHaveCount(0);
@@ -194,16 +197,131 @@ test("Studies index preserves honesty and keeps Signal/Noise unlinked", async ({
 
   await expect(page.getByText(/Self-directed concepts/)).toBeVisible();
   await expect(page.locator(".study-plate.row")).toHaveCount(3);
-  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(3);
+  await expect(page.getByText("Study available", { exact: true })).toHaveCount(1);
+  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(2);
   await expect(page.getByText("Explores:")).toHaveCount(3);
+  await expect(page.getByRole("link", { name: /Open study/ })).toHaveCount(1);
   await expect(page.getByRole("link", { name: /View work in progress/ })).toHaveCount(
-    3,
+    2,
   );
   await expect(page.getByText("Signal/Noise Records")).toBeVisible();
   await expect(page.getByRole("link", { name: /Signal\/Noise Records/ })).toHaveCount(
     0,
   );
   await expect(page.getByText("In progress", { exact: true })).toBeVisible();
+});
+
+test("Northline renders complete honest study content", async ({ page }) => {
+  await page.goto("/studies/northline-atelier/");
+
+  await expect(page.locator('[data-study="northline"]')).toHaveCount(1);
+  await expect(page.getByText("Objects with a spine.")).toBeVisible();
+  await expect(
+    page.getByLabel("Northline colour palette").locator(".northline-palette__swatch"),
+  ).toHaveCount(4);
+  await expect(page.locator(".collection-index li")).toHaveCount(4);
+  await expect(page.locator(".collection-preview figure")).toHaveCount(4);
+  await expect(page.getByText("$1,850", { exact: true })).toBeVisible();
+  await expect(page.getByText("$4,200", { exact: true })).toBeVisible();
+  await expect(page.getByText("$980", { exact: true })).toBeVisible();
+  await expect(page.getByText("$1,340", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "What this study proves, honestly." }),
+  ).toBeVisible();
+  await expect(page.locator(".build-list--solid li")).toHaveCount(4);
+  await expect(page.locator(".build-list--outline li")).toHaveCount(4);
+  expect(
+    await page.locator('script[type="application/ld+json"]').textContent(),
+  ).toContain('"@type":"CreativeWork"');
+});
+
+test("Northline collection preview has hover and focus parity", async ({ page }) => {
+  await page.goto("/studies/northline-atelier/");
+
+  const meridian = page.getByRole("link", { name: /02 Meridian Credenza/ });
+  const preview = page.locator(".collection-scene--2");
+
+  await meridian.hover();
+  await expect(preview).toHaveCSS("opacity", "1");
+  await expect(meridian).toHaveClass(/is-active/);
+
+  const halo = page.getByRole("link", { name: /03 Halo Floor Lamp/ });
+  await halo.focus();
+  await expect(page.locator(".collection-scene--3")).toHaveCSS("opacity", "1");
+  await expect(halo).toHaveClass(/is-active/);
+});
+
+test("Northline comparison exposes labelled stable keyboard controls", async ({
+  page,
+}) => {
+  await page.goto("/studies/northline-atelier/");
+
+  const stage = page.locator(".comparison-stage");
+  const before = await stage.boundingBox();
+  const drawing = page.getByRole("button", { name: "The drawing" });
+
+  await drawing.focus();
+  await page.keyboard.press("Enter");
+  await expect(drawing).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".comparison-view--plan")).toHaveCSS("opacity", "1");
+  const after = await stage.boundingBox();
+  expect(after?.width).toBe(before?.width);
+  expect(after?.height).toBe(before?.height);
+
+  const photo = page.getByRole("button", { name: "In the room" });
+  await photo.click();
+  await expect(photo).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".comparison-view--photo")).toHaveCSS("opacity", "1");
+});
+
+test("Northline stays complete without JavaScript", async ({ browser }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  const page = await context.newPage();
+
+  try {
+    await page.goto("/studies/northline-atelier/");
+    await expect(page.locator(".collection-index li")).toHaveCount(4);
+    await expect(page.locator(".comparison-view")).toHaveCount(2);
+    await expect(page.locator(".comparison-nojs")).toContainText("In the room");
+    await expect(page.locator(".comparison-nojs")).toContainText("The drawing");
+    await expect(page.getByText(/not commissioned client work/)).toBeVisible();
+  } finally {
+    await context.close();
+  }
+});
+
+test("Northline reduced motion makes state changes immediate", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/studies/northline-atelier/");
+
+  const comparisonDuration = await page
+    .locator(".comparison-view--plan")
+    .evaluate((element) => getComputedStyle(element).transitionDuration);
+  const heroAnimation = await page
+    .locator(".northline-hero")
+    .evaluate((element) => getComputedStyle(element).animationName);
+  const sceneAnimation = await page
+    .locator(".collection-scene--1 .collection-scene__art")
+    .evaluate((element) => getComputedStyle(element, "::before").animationName);
+  const photoAnimation = await page
+    .locator(".comparison-view--photo")
+    .evaluate((element) => getComputedStyle(element).animationName);
+
+  expect(Number.parseFloat(comparisonDuration)).toBeLessThanOrEqual(0.00001);
+  expect(heroAnimation).toBe("none");
+  expect(sceneAnimation).toBe("none");
+  expect(photoAnimation).toBe("none");
+});
+
+test("Northline study styles do not replace shell typography", async ({ page }) => {
+  await page.goto("/studies/northline-atelier/");
+  await expect(page.locator(".northline-hero h1")).toHaveCSS(
+    "font-family",
+    /Source Serif 4/,
+  );
+
+  await page.goto("/");
+  await expect(page.locator(".home-hero h1")).toHaveCSS("font-family", /Newsreader/);
 });
 
 test("commercial CTA styles remain scoped and preserve hover contrast", async ({
@@ -277,22 +395,22 @@ test("Start presents full schema without false submission", async ({ page }) => 
   ).toHaveAttribute("href", "mailto:young142001@gmail.com");
 });
 
-test("commercial routes avoid horizontal overflow at 320px", async ({ page }) => {
-  await page.setViewportSize({ width: 320, height: 800 });
-
-  for (const route of [
-    "/",
-    "/services/",
-    "/studies/",
-    "/process/",
-    "/about/",
-    "/privacy/",
-    "/start/",
-  ]) {
-    await page.goto(route);
+for (const route of [
+  "/",
+  "/services/",
+  "/studies/",
+  "/studies/northline-atelier/",
+  "/process/",
+  "/about/",
+  "/privacy/",
+  "/start/",
+]) {
+  test(`${route} avoids horizontal overflow at 320px`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 800 });
+    await page.goto(route, { waitUntil: "domcontentloaded" });
     await expectNoHorizontalOverflow(page);
-  }
-});
+  });
+}
 
 test("skip link and desktop navigation support keyboard use", async ({ page }) => {
   await page.goto("/");

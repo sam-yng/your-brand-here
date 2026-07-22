@@ -8,7 +8,7 @@ const studioStudySchema = studySchema.extend({
   homeSummary: z.string().min(1),
   indexSummary: z.string().min(1),
   explores: z.string().min(1),
-  status: z.literal("Work in progress"),
+  status: z.enum(["Study available", "Work in progress"]),
 });
 
 const studyInput = [
@@ -21,11 +21,11 @@ const studyInput = [
     summary:
       "A fictional furniture and art-decor store with an editorial commerce system.",
     honestyLabel: "Self-directed concept. This is not commissioned client work.",
-    status: "Work in progress",
+    status: "Study available",
     homeSummary:
-      "Work in progress: exploring an editorial catalogue, photograph-to-drawing folios, and materials treated as content.",
+      "An editorial catalogue pairing considered objects with the drawings and materials that explain how they are made.",
     indexSummary:
-      "Work in progress on an editorial store for furniture and objects — one piece per spread, with working drawings beside photographs.",
+      "An editorial store for furniture and objects — one piece per spread, with working drawings beside photographs.",
     explores: "Editorial commerce · catalogue modelling · no-JavaScript reading",
   },
   {

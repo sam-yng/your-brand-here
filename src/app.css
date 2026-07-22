@@ -49,6 +49,14 @@
 }
 
 @font-face {
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+  src: url("./lib/assets/fonts/archivo-latin-variable.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Anton";
   font-style: normal;
   font-weight: 400;

@@ -1,6 +1,6 @@
 # Northline Atelier architecture proof
 
-Status: queued after commercial shell.
+Status: completed 22 July 2026.
 
 ## Objective
 
@@ -50,3 +50,31 @@ and interaction can depart from the shell without selector, token, or runtime le
 
 Northline is complete, honest, accessible, and isolated. Reuse only validated semantic
 infrastructure in later studies; do not turn its layout into a universal template.
+
+## Progress log
+
+- 2026-07-22: activated on `m3a-northline-study`. Commercial-shell implementation,
+  study-index contracts, EXT-09 fonts, and EXT-10 fictional-study copy are complete.
+  Plan 02 remains active only for its independent EXT-08 analytics decision, which
+  does not block Northline work.
+- 2026-07-22: implemented typed Northline content, route-owned palette and type,
+  hero, four-piece collection preview, photo/drawing comparison, build note, CTA,
+  metadata, and CreativeWork JSON-LD. Both interactions retain complete server HTML,
+  keyboard state, focus parity, stable dimensions, and reduced-motion behaviour.
+- 2026-07-22: compared the route with the accepted handoff at 1440px and 320px,
+  corrected honesty-strip casing and control semantics, and found no horizontal
+  overflow or material unexplained mismatch. Northline's client route node is 2.06
+  KiB gzip, below the 90KB limit.
+- 2026-07-22: resolved browser-runner contention without reducing coverage: limited
+  Playwright to one worker, kept every Axe assertion, and split the eight-route
+  overflow loop into independently reported tests. Removed Playwright's timed
+  duplicate web-server build while preserving both required build gates.
+- 2026-07-22: removed hero opacity compositing after Axe exposed a transient 4.17:1
+  contrast state during entry motion. Kept transform-only rise motion and proved the
+  Northline desktop accessibility scan across five fresh-browser repetitions.
+- 2026-07-22: owner delegated final publication-status decision. Marked Northline
+  “Study available” with an “Open study” action; Sunday Service and Common Thread
+  remain honestly labelled work in progress.
+- 2026-07-22: completed with format, lint, typecheck, 13 unit tests, production
+  build, 76 desktop/mobile browser tests, test-integrity guard, and lifecycle guard
+  passing. Plan 04's study-scoping dependency is fulfilled.

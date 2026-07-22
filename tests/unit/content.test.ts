@@ -1,6 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { homeConfiguration } from "../../src/lib/content/commercial";
 import { routeMetadata } from "../../src/lib/content/metadata";
+import { northlineContent } from "../../src/lib/content/northline";
 import { processStages } from "../../src/lib/content/process";
 import {
   engagementShapes,
@@ -32,7 +33,10 @@ describe("foundation content contracts", () => {
         honestyLabel.startsWith("Self-directed concept."),
       ),
     ).toBe(true);
-    expect(studies.every(({ status }) => status === "Work in progress")).toBe(true);
+    expect(studies[0].status).toBe("Study available");
+    expect(studies.slice(1).every(({ status }) => status === "Work in progress")).toBe(
+      true,
+    );
     expect(studies.every(({ explores }) => explores.length > 0)).toBe(true);
   });
 
@@ -53,5 +57,31 @@ describe("foundation content contracts", () => {
           what.length > 0 && deliverable.length > 0 && clientPart.length > 0,
       ),
     ).toBe(true);
+  });
+
+  test("keeps Northline catalogue and architecture proof complete", () => {
+    expect(northlineContent.palette).toHaveLength(4);
+    expect(northlineContent.pieces.map(({ name }) => name)).toEqual([
+      "Loma Chair",
+      "Meridian Credenza",
+      "Halo Floor Lamp",
+      "Terra Mirror",
+    ]);
+    expect(northlineContent.pieces.map(({ price }) => price)).toEqual([
+      "$1,850",
+      "$4,200",
+      "$980",
+      "$1,340",
+    ]);
+    expect(northlineContent.comparison.photoCaption).toStartWith("Placeholder");
+    expect(northlineContent.comparison.planCaption).toStartWith("Placeholder");
+    expect(northlineContent.buildNote.underTheHood).toContain(
+      "≤ 90KB compressed JavaScript for the whole study",
+    );
+    expect(northlineContent.creativeWork).toMatchObject({
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      name: "Northline Atelier",
+    });
   });
 });
