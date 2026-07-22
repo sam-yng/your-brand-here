@@ -20,9 +20,9 @@ export async function expectAccessibleRoute(page: Page, route: RouteExpectation)
   await expect(page.locator("h1")).toHaveCount(1);
   await expect(page.locator("h1")).toHaveText(route.heading);
   await expect(page.locator("main")).toHaveCount(1);
-  await expect(page.locator("header")).toHaveCount(1);
-  await expect(page.locator("footer")).toHaveCount(1);
-  await expect(page.locator("title")).toHaveCount(1);
+  await expect(page.getByRole("banner")).toHaveCount(1);
+  await expect(page.getByRole("contentinfo")).toHaveCount(1);
+  await expect(page.locator("head > title")).toHaveCount(1);
   await expect(page.locator('meta[name="description"]')).toHaveCount(1);
   await expect(page.locator('meta[property="og:title"]')).toHaveCount(1);
 
@@ -46,7 +46,7 @@ export async function expectUsefulWithoutJavaScript(
     expect(response?.ok()).toBe(true);
     await expect(page).toHaveTitle(route.title);
     await expect(page.locator("h1")).toHaveText(route.heading);
-    await expect(page.locator("header")).toBeVisible();
+    await expect(page.getByRole("banner")).toBeVisible();
 
     const primaryNavigation = page.getByRole("navigation", {
       name: "Primary navigation",
@@ -58,7 +58,7 @@ export async function expectUsefulWithoutJavaScript(
       ).toBeVisible();
     }
 
-    await expect(page.locator("footer")).toBeVisible();
+    await expect(page.getByRole("contentinfo")).toBeVisible();
   } finally {
     await context.close();
   }

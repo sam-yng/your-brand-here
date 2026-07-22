@@ -16,13 +16,13 @@ const routes = [
   },
   {
     path: "/services/",
-    heading: "Services",
+    heading: "One joined-up service, not five hand-offs.",
     title: "Services — Your Brand Here",
     description: "Strategy, art direction, design systems, and production web builds.",
   },
   {
     path: "/studies/",
-    heading: "Brand studies",
+    heading: "New ideas, made properly.",
     title: "Brand studies — Your Brand Here",
     description: "Self-directed brand studies carried from brief to production code.",
   },
@@ -46,20 +46,21 @@ const routes = [
   },
   {
     path: "/process/",
-    heading: "Process",
+    heading: "Clear from first note to final handoff.",
     title: "Process — Your Brand Here",
     description:
       "A clear web design and development process from first note to handoff.",
   },
   {
     path: "/about/",
-    heading: "About",
+    heading:
+      "I'm Sam Young, a software engineer who cares how things read, move, and feel — not only whether they run.",
     title: "About — Your Brand Here",
     description: "Meet Sam Young, the designer and engineer behind Your Brand Here.",
   },
   {
     path: "/start/",
-    heading: "Start a project",
+    heading: "Put your brand here.",
     title: "Start a project — Your Brand Here",
     description: "Tell Your Brand Here what you are making or changing.",
   },
@@ -71,7 +72,7 @@ const routes = [
   },
   {
     path: "/privacy/",
-    heading: "Privacy",
+    heading: "Short, because there isn't much to disclose.",
     title: "Privacy — Your Brand Here",
     description: "How Your Brand Here handles inquiry and analytics data.",
   },
@@ -137,8 +138,159 @@ test("legacy /thanks/ permanently redirects to canonical confirmation route", as
 test("representative direct loads remain useful without JavaScript", async ({
   browser,
 }) => {
-  for (const route of [routes[0], routes[3], routes[8], routes[9]]) {
+  for (const route of [
+    routes[0],
+    routes[1],
+    routes[2],
+    routes[6],
+    routes[7],
+    routes[8],
+    routes[9],
+    routes[10],
+  ]) {
     await expectUsefulWithoutJavaScript(browser, route);
+  }
+});
+
+test("Home communicates offer, range, process, and next action", async ({ page }) => {
+  await page.goto("/");
+
+  await expect(
+    page.getByText("Independent web studio · Sydney + remote"),
+  ).toBeVisible();
+  await expect(page.getByLabel("Studio capabilities").locator("span")).toHaveCount(5);
+  await expect(page.locator(".service-preview")).toHaveCount(3);
+  await expect(page.locator(".study-plate.card")).toHaveCount(3);
+  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(3);
+  await expect(page.getByRole("link", { name: /View work in progress/ })).toHaveCount(
+    3,
+  );
+  await expect(page.locator(".process-preview li")).toHaveCount(5);
+  await expect(page.locator(".availability-pill")).toHaveCount(0);
+  await expect(page.locator(".brand-slot")).toHaveAttribute("data-motion", "enabled");
+  await expect(page.getByRole("link", { name: "Put your brand here" })).toBeVisible();
+  await expect(page.locator("[data-treatment-count]")).toHaveText(
+    /Treatment [1-3] \/ 3/,
+  );
+});
+
+test("BrandSlot replay has focus parity and reduced motion ends on treatment three", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto("/");
+
+  await expect(page.locator("[data-treatment-count]")).toHaveText("Treatment 3 / 3");
+  await expect(page.locator(".treatment--final")).toHaveCSS("opacity", "1");
+
+  await page.getByRole("link", { name: "See the studies" }).focus();
+  await expect(page.locator("[data-treatment-count]")).toHaveText("Treatment 3 / 3");
+});
+
+test("Studies index preserves honesty and keeps Signal/Noise unlinked", async ({
+  page,
+}) => {
+  await page.goto("/studies/");
+
+  await expect(page.getByText(/Self-directed concepts/)).toBeVisible();
+  await expect(page.locator(".study-plate.row")).toHaveCount(3);
+  await expect(page.getByText("Work in progress", { exact: true })).toHaveCount(3);
+  await expect(page.getByText("Explores:")).toHaveCount(3);
+  await expect(page.getByRole("link", { name: /View work in progress/ })).toHaveCount(
+    3,
+  );
+  await expect(page.getByText("Signal/Noise Records")).toBeVisible();
+  await expect(page.getByRole("link", { name: /Signal\/Noise Records/ })).toHaveCount(
+    0,
+  );
+  await expect(page.getByText("In progress", { exact: true })).toBeVisible();
+});
+
+test("commercial CTA styles remain scoped and preserve hover contrast", async ({
+  page,
+}) => {
+  for (const route of ["/", "/services/"]) {
+    await page.goto(route);
+    await expect(page.locator(".studio-header .cta-link")).toHaveCSS(
+      "min-height",
+      "44px",
+    );
+  }
+
+  await page.goto("/");
+  const processLink = page.getByRole("link", { name: "Full process" });
+  await processLink.hover();
+  await expect(processLink).toHaveCSS("background-color", "rgb(23, 23, 22)");
+  await expect(processLink).toHaveCSS("color", "rgb(255, 254, 250)");
+});
+
+test("Services and Process expose complete accepted content", async ({ page }) => {
+  await page.goto("/services/");
+  await expect(page.locator(".service-detail")).toHaveCount(3);
+  await expect(page.locator(".engagement-card")).toHaveCount(3);
+  await expect(page.getByText(/indicative budget band in AUD/)).toBeVisible();
+  await expect(page.getByRole("heading", { name: "A good fit" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Not the offer" })).toBeVisible();
+
+  await page.goto("/process/");
+  await expect(page.locator(".process-card")).toHaveCount(5);
+  await expect(page.getByRole("heading", { name: "What happens" })).toHaveCount(5);
+  await expect(page.getByRole("heading", { name: "You get" })).toHaveCount(5);
+  await expect(page.getByRole("heading", { name: "Your part" })).toHaveCount(5);
+});
+
+test("About preserves evidence decisions and Privacy reflects current collection", async ({
+  page,
+}) => {
+  await page.goto("/about/");
+  await expect(page.locator(".evidence-card")).toHaveCount(4);
+  await expect(page.locator(".hard-call")).toHaveCount(4);
+  await expect(page.locator(".standards-panel li")).toHaveCount(5);
+
+  await page.goto("/privacy/");
+  await expect(page.locator(".privacy-card")).toHaveCount(4);
+  await expect(page.getByText("No analytics are currently installed.")).toBeVisible();
+  await expect(page.getByText(/non-submitting preview/)).toBeVisible();
+});
+
+test("Start presents full schema without false submission", async ({ page }) => {
+  await page.goto("/start/");
+
+  await expect(page.locator("form input[name='name']")).toHaveAttribute("required", "");
+  await expect(page.locator("form input[name='email']")).toHaveAttribute(
+    "required",
+    "",
+  );
+  await expect(page.locator("form textarea[name='brief']")).toHaveAttribute(
+    "required",
+    "",
+  );
+  await expect(page.locator("form input[name='consent']")).toHaveAttribute(
+    "required",
+    "",
+  );
+  await expect(page.locator("form select[name='budget'] option")).toHaveCount(5);
+  await expect(page.getByRole("button", { name: "Send project brief" })).toBeDisabled();
+  await expect(page.getByRole("status")).toContainText("Form delivery is not live yet");
+  await expect(
+    page.locator(".email-panel").getByRole("link", { name: "young142001@gmail.com" }),
+  ).toHaveAttribute("href", "mailto:young142001@gmail.com");
+});
+
+test("commercial routes avoid horizontal overflow at 320px", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 800 });
+
+  for (const route of [
+    "/",
+    "/services/",
+    "/studies/",
+    "/process/",
+    "/about/",
+    "/privacy/",
+    "/start/",
+  ]) {
+    await page.goto(route);
+    await expectNoHorizontalOverflow(page);
   }
 });
 

@@ -65,7 +65,7 @@ holding a long-lived integration branch.
 
 1. [`01-foundation-convergence`](../completed/01-foundation-convergence.md)
    corrects shared primitives and freezes route/content contracts.
-2. [`02-commercial-shell`](../queued/02-commercial-shell.md) completes
+2. [`02-commercial-shell`](./02-commercial-shell.md) completes
    Home, Studies index, Services, Process, About, Privacy, and shared conversion
    paths.
 3. [`03a-northline-study`](../queued/03a-northline-study.md) proves one
@@ -120,9 +120,9 @@ complete. Move superseded plans to `archive/`, not `completed/`.
 | Confirmation URL | foundation | Canonical `/start/thanks/`; permanent legacy `/thanks/` redirect | decided 2026-07-16 |
 | Public name and domain | launch metadata | Keep “Your Brand Here”; choose primary domain before canonical work is finalized | open |
 | Location claim | commercial copy | Use “Sydney + remote” | decided 2026-07-17 |
-| Minimum engagement | Services and form | Select truthful lowest AUD band; avoid fixed package pricing | open |
-| Copy service boundary | Services | Describe as collaborative shaping unless separate copywriting is genuinely sold | open |
-| Availability signal | Home | Default hidden until an honest update owner exists | open |
+| Minimum engagement | Services and form | Use “Under $10k” as lowest indicative AUD band; avoid fixed package pricing | decided 2026-07-20 |
+| Copy service boundary | Services | Describe as collaborative shaping, not standalone copywriting | decided 2026-07-20 |
+| Availability signal | Home | Keep hidden until an honest update owner exists | decided 2026-07-20 |
 | Public contact identity | footer/form | Use `young142001@gmail.com` publicly for now; transactional From address and sending subdomain remain open | partial 2026-07-17 |
 | Analytics | Privacy and CSP | Prefer privacy-light analytics or explicitly choose none | open |
 | Portrait | About | Keep optional; do not block v1 | open |
@@ -148,7 +148,7 @@ owner, target environment, and an evidence pointer without committing secrets.
 | EXT-07 | Choose and configure rate-limit boundary (managed store or Vercel firewall) | Wave 3B | public form launch | rule/store name and test evidence | pending |
 | EXT-08 | Choose analytics or none; configure property and update privacy truth | Wave 2 | final privacy/CSP | property label or recorded “none” decision | pending |
 | EXT-09 | Obtain production-usable WOFF2 font files and verify license/provenance for all nine families | Wave 1 | typography fidelity | `src/lib/assets/fonts/README.md`, family licenses, SHA-256 hashes | complete 2026-07-16 |
-| EXT-10 | Confirm final service, budget, availability, contact, location, and fictional-study copy | Wave 0 | content freeze | dated owner approval note | pending |
+| EXT-10 | Confirm final service, budget, availability, contact, location, and fictional-study copy | Wave 0 | content freeze | owner approved current commercial-shell claims in task on 2026-07-20 | complete 2026-07-20 |
 | EXT-11 | Ask two non-developers to explain offer and CTA after a 20-second Home scan | Wave 5 | launch content sign-off | anonymized findings and resulting changes | pending |
 | EXT-12 | Run real-device checks on current iOS Safari and Android Chrome | Wave 5 | launch QA | device/OS/browser matrix and findings | pending |
 | EXT-13 | Test production inquiry end to end, including received email and delivery metadata | Wave 5 | form launch | timestamp, deployment, provider request ID | pending |
@@ -191,7 +191,14 @@ responsive hierarchy, and absence of shell/study style leakage.
   01.
 - 2026-07-17: completed plan 01; owner deferred Vercel project creation and hosted
   Node 24 evidence until every queued plan completes.
-- Next: activate plan 02 while remaining Wave 0 content decisions progress.
+- 2026-07-20: activated plan 02 while remaining Wave 0 content decisions progress.
+- 2026-07-20: plan 02 implementation and full repository gate completed. Commercial
+  routes now match the accepted handoff materially, with staged form and analytics
+  copy intentionally reflecting current non-live behavior.
+- 2026-07-20: owner approved current commercial claims and exact high-risk
+  publication delta, completing EXT-10.
+- Next: close EXT-08 analytics/none decision so plan 02 can exit; its stable Start and
+  study-index contracts otherwise unblock plans 03A and 03B.
 
 ## Completion
 
