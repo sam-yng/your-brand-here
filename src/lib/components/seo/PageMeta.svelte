@@ -24,6 +24,7 @@
 	let resolvedTitle = $derived(metadata?.title ?? title ?? 'Your Brand Here');
 	let resolvedDescription = $derived(metadata?.description ?? description ?? 'Independent web studio.');
 	let shouldNoindex = $derived(metadata?.noindex ?? noindex);
+	let serializedJsonLd = $derived(jsonLd ? JSON.stringify(jsonLd).replaceAll('<', '\\u003c') : undefined);
 	let documentTitle = $derived(
 		resolvedTitle === 'Home' ? 'Your Brand Here — Independent web studio' : `${resolvedTitle} — Your Brand Here`
 	);
@@ -50,7 +51,7 @@
 		<meta property="og:image" content={socialImageUrl} />
 		<meta name="twitter:image" content={socialImageUrl} />
 	{/if}
-	{#if jsonLd}
-		<script type="application/ld+json">{JSON.stringify(jsonLd).replaceAll('<', '\\u003c')}</script>
+	{#if serializedJsonLd}
+		{@html `<script type="application/ld+json">${serializedJsonLd}</script>`}
 	{/if}
 </svelte:head>

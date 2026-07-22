@@ -68,7 +68,7 @@ holding a long-lived integration branch.
 2. [`02-commercial-shell`](./02-commercial-shell.md) completes
    Home, Studies index, Services, Process, About, Privacy, and shared conversion
    paths.
-3. [`03a-northline-study`](../queued/03a-northline-study.md) proves one
+3. [`03a-northline-study`](../completed/03a-northline-study.md) proves one
    study can own type, palette, and interactions without leakage.
 4. [`03b-inquiry-pipeline`](../queued/03b-inquiry-pipeline.md) builds the
    server-authoritative inquiry path. It can run beside plan 3A.
@@ -197,8 +197,10 @@ responsive hierarchy, and absence of shell/study style leakage.
   copy intentionally reflecting current non-live behavior.
 - 2026-07-20: owner approved current commercial claims and exact high-risk
   publication delta, completing EXT-10.
-- Next: close EXT-08 analytics/none decision so plan 02 can exit; its stable Start and
-  study-index contracts otherwise unblock plans 03A and 03B.
+- 2026-07-22: reviewed active work and completed plan 03A. Northline validates
+  study-owned type, palette, interaction, no-JavaScript reading, and shell isolation;
+  plan 04's dependency is fulfilled. Plan 02 remains active only for EXT-08.
+- Next: resolve EXT-08 for plan 02; plans 03B and 04 remain independently queued.
 
 ## Completion
 

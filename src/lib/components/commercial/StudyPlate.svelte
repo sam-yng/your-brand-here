@@ -38,7 +38,9 @@
 		<span class="study-title">{study.title}</span>
 		<span class="study-summary">{layout === 'row' ? study.indexSummary : study.homeSummary}</span>
 		{#if layout === 'row'}<span class="study-proves">Explores: {study.explores}</span>{/if}
-		<span class="study-action">View work in progress →</span>
+		<span class="study-action"
+			>{study.status === 'Study available' ? 'Open study →' : 'View work in progress →'}</span
+		>
 	</div>
 
 	{#if layout === 'row' && study.slug !== 'sunday-service'}

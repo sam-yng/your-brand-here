@@ -18,7 +18,7 @@
     "typecheck": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "typecheck:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "test": "bun test tests/unit",
-    "test:e2e": "playwright test",
+    "test:e2e": "bun run build && playwright test",
     "plan:check": "node .agents/scripts/check-plan-lifecycle.mjs",
     "guard:tests": "node .agents/guardrails/check-test-integrity.mjs",
     "check": "bun run format:check && bun run lint && bun run typecheck && bun run test && bun run build && bun run test:e2e && bun run guard:tests && bun run plan:check"
